@@ -1,0 +1,2554 @@
+{
+    "acquisition-of-beneficial-ownership": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 2000
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "2000"
+        }
+    },
+    "actively-trading-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "aftermarket-quote": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "aftermarket-trade": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "all-exchange-market-hours": {
+        "parameters": {
+            "timestamp": "1769527402"
+        },
+        "query": {
+            "timestamp": "1769527402"
+        }
+    },
+    "all-industry-classification": {
+        "parameters": {
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "analyst-estimates": {
+        "parameters": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "page": 0,
+            "limit": 10
+        },
+        "query": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "page": "0",
+            "limit": "10"
+        }
+    },
+    "available-countries": {
+        "parameters": {},
+        "query": {}
+    },
+    "available-exchanges": {
+        "parameters": {
+            "extended": false
+        },
+        "query": {
+            "extended": "false"
+        }
+    },
+    "available-industries": {
+        "parameters": {},
+        "query": {}
+    },
+    "available-sectors": {
+        "parameters": {},
+        "query": {}
+    },
+    "balance-sheet-statement": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "balance-sheet-statement-as-reported": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "annual"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "annual"
+        }
+    },
+    "balance-sheet-statement-bulk": {
+        "parameters": {
+            "year": "2026",
+            "period": "Q1"
+        },
+        "query": {
+            "year": "2026",
+            "period": "Q1"
+        }
+    },
+    "balance-sheet-statement-growth": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "balance-sheet-statement-growth-bulk": {
+        "parameters": {
+            "year": "2026",
+            "period": "Q1"
+        },
+        "query": {
+            "year": "2026",
+            "period": "Q1"
+        }
+    },
+    "balance-sheet-statement-ttm": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5"
+        }
+    },
+    "batch-aftermarket-quote": {
+        "parameters": {
+            "symbols": "AAPL"
+        },
+        "query": {
+            "symbols": "AAPL"
+        }
+    },
+    "batch-aftermarket-trade": {
+        "parameters": {
+            "symbols": "AAPL"
+        },
+        "query": {
+            "symbols": "AAPL"
+        }
+    },
+    "batch-commodity-quotes": {
+        "parameters": {
+            "short": true
+        },
+        "query": {
+            "short": "true"
+        }
+    },
+    "batch-crypto-quotes": {
+        "parameters": {
+            "short": true
+        },
+        "query": {
+            "short": "true"
+        }
+    },
+    "batch-etf-quotes": {
+        "parameters": {
+            "short": true
+        },
+        "query": {
+            "short": "true"
+        }
+    },
+    "batch-exchange-quote": {
+        "parameters": {
+            "exchange": "NASDAQ",
+            "short": true
+        },
+        "query": {
+            "exchange": "NASDAQ",
+            "short": "true"
+        }
+    },
+    "batch-forex-quotes": {
+        "parameters": {
+            "short": true
+        },
+        "query": {
+            "short": "true"
+        }
+    },
+    "batch-index-quotes": {
+        "parameters": {
+            "short": true
+        },
+        "query": {
+            "short": "true"
+        }
+    },
+    "batch-mutualfund-quotes": {
+        "parameters": {
+            "short": true
+        },
+        "query": {
+            "short": "true"
+        }
+    },
+    "batch-quote": {
+        "parameters": {
+            "symbols": "AAPL"
+        },
+        "query": {
+            "symbols": "AAPL"
+        }
+    },
+    "batch-quote-short": {
+        "parameters": {
+            "symbols": "AAPL"
+        },
+        "query": {
+            "symbols": "AAPL"
+        }
+    },
+    "biggest-gainers": {
+        "parameters": {},
+        "query": {}
+    },
+    "biggest-losers": {
+        "parameters": {},
+        "query": {}
+    },
+    "cash-flow-statement": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "cash-flow-statement-as-reported": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "annual"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "annual"
+        }
+    },
+    "cash-flow-statement-bulk": {
+        "parameters": {
+            "year": "2026",
+            "period": "Q1"
+        },
+        "query": {
+            "year": "2026",
+            "period": "Q1"
+        }
+    },
+    "cash-flow-statement-growth": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "cash-flow-statement-growth-bulk": {
+        "parameters": {
+            "year": "2026",
+            "period": "Q1"
+        },
+        "query": {
+            "year": "2026",
+            "period": "Q1"
+        }
+    },
+    "cash-flow-statement-ttm": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5"
+        }
+    },
+    "cik-list": {
+        "parameters": {
+            "page": 0,
+            "limit": 1000
+        },
+        "query": {
+            "page": "0",
+            "limit": "1000"
+        }
+    },
+    "commitment-of-traders-analysis": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01"
+        }
+    },
+    "commitment-of-traders-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "commitment-of-traders-report": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01"
+        }
+    },
+    "commodities-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "company-notes": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "company-screener": {
+        "parameters": {
+            "marketCapMoreThan": 1000000,
+            "marketCapLowerThan": 10000000000000,
+            "sector": "Technology",
+            "industry": "Consumer Electronics",
+            "betaMoreThan": 0.5,
+            "betaLowerThan": 1.5,
+            "priceMoreThan": 10,
+            "priceLowerThan": 500,
+            "dividendMoreThan": 0.5,
+            "dividendLowerThan": 2,
+            "volumeMoreThan": 1000,
+            "volumeLowerThan": 100000000,
+            "avgVolumeMoreThan": 1000,
+            "avgVolumeLowerThan": 100000000,
+            "exchange": "NASDAQ",
+            "country": "US",
+            "isEtf": false,
+            "isFund": false,
+            "isActivelyTrading": true,
+            "page": 0,
+            "limit": 1000,
+            "includeAllShareClasses": false
+        },
+        "query": {
+            "marketCapMoreThan": "1000000",
+            "marketCapLowerThan": "10000000000000",
+            "sector": "Technology",
+            "industry": "Consumer Electronics",
+            "betaMoreThan": "0.5",
+            "betaLowerThan": "1.5",
+            "priceMoreThan": "10",
+            "priceLowerThan": "500",
+            "dividendMoreThan": "0.5",
+            "dividendLowerThan": "2",
+            "volumeMoreThan": "1000",
+            "volumeLowerThan": "100000000",
+            "avgVolumeMoreThan": "1000",
+            "avgVolumeLowerThan": "100000000",
+            "exchange": "NASDAQ",
+            "country": "US",
+            "isEtf": "false",
+            "isFund": "false",
+            "isActivelyTrading": "true",
+            "page": "0",
+            "limit": "1000",
+            "includeAllShareClasses": "false"
+        }
+    },
+    "crowdfunding-offerings": {
+        "parameters": {
+            "cik": "0001916078"
+        },
+        "query": {
+            "cik": "0001916078"
+        }
+    },
+    "crowdfunding-offerings-latest": {
+        "parameters": {
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "crowdfunding-offerings-search": {
+        "parameters": {
+            "name": "enotap"
+        },
+        "query": {
+            "name": "enotap"
+        }
+    },
+    "cryptocurrency-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "custom-discounted-cash-flow": {
+        "parameters": {
+            "symbol": "AAPL",
+            "revenueGrowthPct": 0.1094119804597946,
+            "ebitdaPct": 0.31273548388,
+            "depreciationAndAmortizationPct": 0.0345531631720999,
+            "cashAndShortTermInvestmentsPct": 0.2344222126801843,
+            "receivablesPct": 0.1533770531229388,
+            "inventoriesPct": 0.0155245674227653,
+            "payablePct": 0.1614868903169657,
+            "ebitPct": 0.2781823207138459,
+            "capitalExpenditurePct": 0.0306025847141713,
+            "operatingCashFlowPct": 0.2886333485760204,
+            "sellingGeneralAndAdministrativeExpensesPct": 0.0662854095187211,
+            "taxRate": 0.14919579658453103,
+            "longTermGrowthRate": 4,
+            "costOfDebt": 3.64,
+            "costOfEquity": 9.51168,
+            "marketRiskPremium": 4.72,
+            "beta": 1.244,
+            "riskFreeRate": 3.64
+        },
+        "query": {
+            "symbol": "AAPL",
+            "revenueGrowthPct": "0.1094119804597946",
+            "ebitdaPct": "0.31273548388",
+            "depreciationAndAmortizationPct": "0.0345531631720999",
+            "cashAndShortTermInvestmentsPct": "0.2344222126801843",
+            "receivablesPct": "0.1533770531229388",
+            "inventoriesPct": "0.0155245674227653",
+            "payablePct": "0.1614868903169657",
+            "ebitPct": "0.2781823207138459",
+            "capitalExpenditurePct": "0.0306025847141713",
+            "operatingCashFlowPct": "0.2886333485760204",
+            "sellingGeneralAndAdministrativeExpensesPct": "0.0662854095187211",
+            "taxRate": "0.14919579658453103",
+            "longTermGrowthRate": "4",
+            "costOfDebt": "3.64",
+            "costOfEquity": "9.51168",
+            "marketRiskPremium": "4.72",
+            "beta": "1.244",
+            "riskFreeRate": "3.64"
+        }
+    },
+    "custom-levered-discounted-cash-flow": {
+        "parameters": {
+            "symbol": "AAPL",
+            "revenueGrowthPct": 0.1094119804597946,
+            "ebitdaPct": 0.31273548388,
+            "depreciationAndAmortizationPct": 0.0345531631720999,
+            "cashAndShortTermInvestmentsPct": 0.2344222126801843,
+            "receivablesPct": 0.1533770531229388,
+            "inventoriesPct": 0.0155245674227653,
+            "payablePct": 0.1614868903169657,
+            "ebitPct": 0.2781823207138459,
+            "capitalExpenditurePct": 0.0306025847141713,
+            "operatingCashFlowPct": 0.2886333485760204,
+            "sellingGeneralAndAdministrativeExpensesPct": 0.0662854095187211,
+            "taxRate": 0.14919579658453103,
+            "longTermGrowthRate": 4,
+            "costOfDebt": 3.64,
+            "costOfEquity": 9.51168,
+            "marketRiskPremium": 4.72,
+            "beta": 1.244,
+            "riskFreeRate": 3.64
+        },
+        "query": {
+            "symbol": "AAPL",
+            "revenueGrowthPct": "0.1094119804597946",
+            "ebitdaPct": "0.31273548388",
+            "depreciationAndAmortizationPct": "0.0345531631720999",
+            "cashAndShortTermInvestmentsPct": "0.2344222126801843",
+            "receivablesPct": "0.1533770531229388",
+            "inventoriesPct": "0.0155245674227653",
+            "payablePct": "0.1614868903169657",
+            "ebitPct": "0.2781823207138459",
+            "capitalExpenditurePct": "0.0306025847141713",
+            "operatingCashFlowPct": "0.2886333485760204",
+            "sellingGeneralAndAdministrativeExpensesPct": "0.0662854095187211",
+            "taxRate": "0.14919579658453103",
+            "longTermGrowthRate": "4",
+            "costOfDebt": "3.64",
+            "costOfEquity": "9.51168",
+            "marketRiskPremium": "4.72",
+            "beta": "1.244",
+            "riskFreeRate": "3.64"
+        }
+    },
+    "dcf-bulk": {
+        "parameters": {},
+        "query": {}
+    },
+    "delisted-companies": {
+        "parameters": {
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "discounted-cash-flow": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "dividends": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 100
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "100"
+        }
+    },
+    "dividends-calendar": {
+        "parameters": {
+            "from": "2026-03-06",
+            "to": "2026-06-06",
+            "page": 0
+        },
+        "query": {
+            "from": "2026-03-06",
+            "to": "2026-06-06",
+            "page": "0"
+        }
+    },
+    "dowjones-constituent": {
+        "parameters": {},
+        "query": {}
+    },
+    "earning-call-transcript": {
+        "parameters": {
+            "symbol": "AAPL",
+            "year": "2020",
+            "quarter": "3",
+            "limit": 1
+        },
+        "query": {
+            "symbol": "AAPL",
+            "year": "2020",
+            "quarter": "3",
+            "limit": "1"
+        }
+    },
+    "earning-call-transcript-dates": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "earning-call-transcript-latest": {
+        "parameters": {
+            "limit": 100,
+            "page": 0
+        },
+        "query": {
+            "limit": "100",
+            "page": "0"
+        }
+    },
+    "earnings": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 100,
+            "includeReportTimes": false
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "100",
+            "includeReportTimes": "false"
+        }
+    },
+    "earnings-calendar": {
+        "parameters": {
+            "from": "2026-03-06",
+            "to": "2026-06-06",
+            "page": 0,
+            "includeReportTimes": false
+        },
+        "query": {
+            "from": "2026-03-06",
+            "to": "2026-06-06",
+            "page": "0",
+            "includeReportTimes": "false"
+        }
+    },
+    "earnings-surprises-bulk": {
+        "parameters": {
+            "year": "2026"
+        },
+        "query": {
+            "year": "2026"
+        }
+    },
+    "earnings-transcript-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "economic-calendar": {
+        "parameters": {
+            "country": "US",
+            "from": "2026-01-27",
+            "to": "2026-04-27"
+        },
+        "query": {
+            "country": "US",
+            "from": "2026-01-27",
+            "to": "2026-04-27"
+        }
+    },
+    "economic-indicators": {
+        "parameters": {
+            "name": "GDP",
+            "from": "2025-04-27",
+            "to": "2026-04-27"
+        },
+        "query": {
+            "name": "GDP",
+            "from": "2025-04-27",
+            "to": "2026-04-27"
+        }
+    },
+    "employee-count": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 100
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "100"
+        }
+    },
+    "enterprise-values": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "eod-bulk": {
+        "parameters": {
+            "date": "2024-10-22"
+        },
+        "query": {
+            "date": "2024-10-22"
+        }
+    },
+    "esg-benchmark": {
+        "parameters": {
+            "year": "2023"
+        },
+        "query": {
+            "year": "2023"
+        }
+    },
+    "esg-disclosures": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "esg-ratings": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "etf-holder-bulk": {
+        "parameters": {
+            "part": "1"
+        },
+        "query": {
+            "part": "1"
+        }
+    },
+    "etf-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "etf/asset-exposure": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "etf/country-weightings": {
+        "parameters": {
+            "symbol": "SPY"
+        },
+        "query": {
+            "symbol": "SPY"
+        }
+    },
+    "etf/holdings": {
+        "parameters": {
+            "symbol": "SPY"
+        },
+        "query": {
+            "symbol": "SPY"
+        }
+    },
+    "etf/info": {
+        "parameters": {
+            "symbol": "SPY"
+        },
+        "query": {
+            "symbol": "SPY"
+        }
+    },
+    "etf/sector-weightings": {
+        "parameters": {
+            "symbol": "SPY"
+        },
+        "query": {
+            "symbol": "SPY"
+        }
+    },
+    "exchange-market-hours": {
+        "parameters": {
+            "exchange": "NASDAQ",
+            "timestamp": "1769527402"
+        },
+        "query": {
+            "exchange": "NASDAQ",
+            "timestamp": "1769527402"
+        }
+    },
+    "executive-compensation-benchmark": {
+        "parameters": {
+            "year": "2024"
+        },
+        "query": {
+            "year": "2024"
+        }
+    },
+    "financial-growth": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "financial-reports-dates": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "financial-reports-json": {
+        "parameters": {
+            "symbol": "AAPL",
+            "year": 2022,
+            "period": "FY"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "year": "2022",
+            "period": "FY"
+        }
+    },
+    "financial-reports-xlsx": {
+        "parameters": {
+            "symbol": "AAPL",
+            "year": 2022,
+            "period": "FY"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "year": "2022",
+            "period": "FY"
+        }
+    },
+    "financial-scores": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "financial-statement-full-as-reported": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "annual"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "annual"
+        }
+    },
+    "financial-statement-symbol-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "fmp-articles": {
+        "parameters": {
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "forex-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "fundraising": {
+        "parameters": {
+            "cik": "0001547416"
+        },
+        "query": {
+            "cik": "0001547416"
+        }
+    },
+    "fundraising-latest": {
+        "parameters": {
+            "page": 0,
+            "limit": 10,
+            "cik": "0002013736"
+        },
+        "query": {
+            "page": "0",
+            "limit": "10",
+            "cik": "0002013736"
+        }
+    },
+    "fundraising-search": {
+        "parameters": {
+            "name": "NJOY"
+        },
+        "query": {
+            "name": "NJOY"
+        }
+    },
+    "funds/disclosure": {
+        "parameters": {
+            "symbol": "VWO",
+            "year": "2023",
+            "quarter": "4",
+            "cik": "0000857489"
+        },
+        "query": {
+            "symbol": "VWO",
+            "year": "2023",
+            "quarter": "4",
+            "cik": "0000857489"
+        }
+    },
+    "funds/disclosure-dates": {
+        "parameters": {
+            "symbol": "VWO",
+            "cik": "0000036405"
+        },
+        "query": {
+            "symbol": "VWO",
+            "cik": "0000036405"
+        }
+    },
+    "funds/disclosure-holders-latest": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "funds/disclosure-holders-search": {
+        "parameters": {
+            "name": "Federated Hermes Government Income Securities, Inc."
+        },
+        "query": {
+            "name": "Federated Hermes Government Income Securities, Inc."
+        }
+    },
+    "governance-executive-compensation": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "grades": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "grades-consensus": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "grades-historical": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 100
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "100"
+        }
+    },
+    "historical-chart/15min": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": false,
+            "extended": false
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": "false",
+            "extended": "false"
+        }
+    },
+    "historical-chart/1hour": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": false,
+            "extended": false
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": "false",
+            "extended": "false"
+        }
+    },
+    "historical-chart/1min": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": false,
+            "extended": false
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": "false",
+            "extended": "false"
+        }
+    },
+    "historical-chart/30min": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": false,
+            "extended": false
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": "false",
+            "extended": "false"
+        }
+    },
+    "historical-chart/4hour": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": false,
+            "extended": false
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": "false",
+            "extended": "false"
+        }
+    },
+    "historical-chart/5min": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": false,
+            "extended": false
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "nonadjusted": "false",
+            "extended": "false"
+        }
+    },
+    "historical-dowjones-constituent": {
+        "parameters": {},
+        "query": {}
+    },
+    "historical-employee-count": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 100
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "100"
+        }
+    },
+    "historical-industry-pe": {
+        "parameters": {
+            "industry": "Biotechnology",
+            "exchange": "NASDAQ",
+            "from": "2024-02-01",
+            "to": "2024-03-01"
+        },
+        "query": {
+            "industry": "Biotechnology",
+            "exchange": "NASDAQ",
+            "from": "2024-02-01",
+            "to": "2024-03-01"
+        }
+    },
+    "historical-industry-performance": {
+        "parameters": {
+            "industry": "Biotechnology",
+            "exchange": "NASDAQ",
+            "from": "2024-02-01",
+            "to": "2024-03-01"
+        },
+        "query": {
+            "industry": "Biotechnology",
+            "exchange": "NASDAQ",
+            "from": "2024-02-01",
+            "to": "2024-03-01"
+        }
+    },
+    "historical-market-capitalization": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 100,
+            "from": "2026-04-16",
+            "to": "2026-07-16"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "100",
+            "from": "2026-04-16",
+            "to": "2026-07-16"
+        }
+    },
+    "historical-nasdaq-constituent": {
+        "parameters": {},
+        "query": {}
+    },
+    "historical-price-eod/dividend-adjusted": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2026-04-30",
+            "to": "2026-07-30"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2026-04-30",
+            "to": "2026-07-30"
+        }
+    },
+    "historical-price-eod/full": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2026-04-30",
+            "to": "2026-07-30"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2026-04-30",
+            "to": "2026-07-30"
+        }
+    },
+    "historical-price-eod/light": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2026-04-30",
+            "to": "2026-07-30"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2026-04-30",
+            "to": "2026-07-30"
+        }
+    },
+    "historical-price-eod/non-split-adjusted": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2026-04-30",
+            "to": "2026-07-30"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2026-04-30",
+            "to": "2026-07-30"
+        }
+    },
+    "historical-sector-pe": {
+        "parameters": {
+            "from": "2024-02-01",
+            "exchange": "NASDAQ",
+            "sector": "Energy",
+            "to": "2024-03-01"
+        },
+        "query": {
+            "from": "2024-02-01",
+            "exchange": "NASDAQ",
+            "sector": "Energy",
+            "to": "2024-03-01"
+        }
+    },
+    "historical-sector-performance": {
+        "parameters": {
+            "from": "2024-02-01",
+            "exchange": "NASDAQ",
+            "sector": "Energy",
+            "to": "2024-03-01"
+        },
+        "query": {
+            "from": "2024-02-01",
+            "exchange": "NASDAQ",
+            "sector": "Energy",
+            "to": "2024-03-01"
+        }
+    },
+    "historical-sp500-constituent": {
+        "parameters": {},
+        "query": {}
+    },
+    "holidays-by-exchange": {
+        "parameters": {
+            "exchange": "NASDAQ",
+            "from": "2025-04-27",
+            "to": "2026-04-27"
+        },
+        "query": {
+            "exchange": "NASDAQ",
+            "from": "2025-04-27",
+            "to": "2026-04-27"
+        }
+    },
+    "house-latest": {
+        "parameters": {
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "house-trades": {
+        "parameters": {
+            "symbol": "AAPL",
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "symbol": "AAPL",
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "house-trades-by-id": {
+        "parameters": {
+            "page": 0,
+            "limit": 100,
+            "senateID": "P000197"
+        },
+        "query": {
+            "page": "0",
+            "limit": "100",
+            "senateID": "P000197"
+        }
+    },
+    "house-trades-by-name": {
+        "parameters": {
+            "name": "James"
+        },
+        "query": {
+            "name": "James"
+        }
+    },
+    "income-statement": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "income-statement-as-reported": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "annual"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "annual"
+        }
+    },
+    "income-statement-bulk": {
+        "parameters": {
+            "year": "2026",
+            "period": "Q1"
+        },
+        "query": {
+            "year": "2026",
+            "period": "Q1"
+        }
+    },
+    "income-statement-growth": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "income-statement-growth-bulk": {
+        "parameters": {
+            "year": "2026",
+            "period": "Q1"
+        },
+        "query": {
+            "year": "2026",
+            "period": "Q1"
+        }
+    },
+    "income-statement-ttm": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5"
+        }
+    },
+    "index-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "industry-classification-search": {
+        "parameters": {
+            "symbol": "AAPL",
+            "cik": "320193",
+            "sicCode": "7371"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "cik": "320193",
+            "sicCode": "7371"
+        }
+    },
+    "industry-pe-snapshot": {
+        "parameters": {
+            "date": "2024-02-01",
+            "exchange": "NASDAQ",
+            "industry": "Biotechnology"
+        },
+        "query": {
+            "date": "2024-02-01",
+            "exchange": "NASDAQ",
+            "industry": "Biotechnology"
+        }
+    },
+    "industry-performance-snapshot": {
+        "parameters": {
+            "date": "2024-02-01",
+            "exchange": "NASDAQ",
+            "industry": "Biotechnology"
+        },
+        "query": {
+            "date": "2024-02-01",
+            "exchange": "NASDAQ",
+            "industry": "Biotechnology"
+        }
+    },
+    "insider-trading-transaction-type": {
+        "parameters": {},
+        "query": {}
+    },
+    "insider-trading/latest": {
+        "parameters": {
+            "date": "2026-01-27",
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "date": "2026-01-27",
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "insider-trading/reporting-name": {
+        "parameters": {
+            "name": "Zuckerberg"
+        },
+        "query": {
+            "name": "Zuckerberg"
+        }
+    },
+    "insider-trading/search": {
+        "parameters": {
+            "symbol": "AAPL",
+            "page": 0,
+            "limit": 100,
+            "reportingCik": "0001496686",
+            "companyCik": "0000320193",
+            "transactionType": "S-Sale"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "page": "0",
+            "limit": "100",
+            "reportingCik": "0001496686",
+            "companyCik": "0000320193",
+            "transactionType": "S-Sale"
+        }
+    },
+    "insider-trading/statistics": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "institutional-ownership/dates": {
+        "parameters": {
+            "cik": "0001067983"
+        },
+        "query": {
+            "cik": "0001067983"
+        }
+    },
+    "institutional-ownership/extract": {
+        "parameters": {
+            "cik": "0001388838",
+            "year": "2023",
+            "quarter": "3"
+        },
+        "query": {
+            "cik": "0001388838",
+            "year": "2023",
+            "quarter": "3"
+        }
+    },
+    "institutional-ownership/extract-analytics/holder": {
+        "parameters": {
+            "symbol": "AAPL",
+            "year": "2023",
+            "quarter": "3",
+            "page": 0,
+            "limit": 10
+        },
+        "query": {
+            "symbol": "AAPL",
+            "year": "2023",
+            "quarter": "3",
+            "page": "0",
+            "limit": "10"
+        }
+    },
+    "institutional-ownership/holder-industry-breakdown": {
+        "parameters": {
+            "cik": "0001067983",
+            "year": "2023",
+            "quarter": "3"
+        },
+        "query": {
+            "cik": "0001067983",
+            "year": "2023",
+            "quarter": "3"
+        }
+    },
+    "institutional-ownership/holder-performance-summary": {
+        "parameters": {
+            "cik": "0001067983",
+            "page": 0
+        },
+        "query": {
+            "cik": "0001067983",
+            "page": "0"
+        }
+    },
+    "institutional-ownership/industry-summary": {
+        "parameters": {
+            "year": "2023",
+            "quarter": "3"
+        },
+        "query": {
+            "year": "2023",
+            "quarter": "3"
+        }
+    },
+    "institutional-ownership/latest": {
+        "parameters": {
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "institutional-ownership/symbol-positions-summary": {
+        "parameters": {
+            "symbol": "AAPL",
+            "year": "2023",
+            "quarter": "3"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "year": "2023",
+            "quarter": "3"
+        }
+    },
+    "ipos-calendar": {
+        "parameters": {
+            "from": "2026-03-06",
+            "to": "2026-06-06"
+        },
+        "query": {
+            "from": "2026-03-06",
+            "to": "2026-06-06"
+        }
+    },
+    "ipos-disclosure": {
+        "parameters": {
+            "from": "2026-03-06",
+            "to": "2026-06-06"
+        },
+        "query": {
+            "from": "2026-03-06",
+            "to": "2026-06-06"
+        }
+    },
+    "ipos-prospectus": {
+        "parameters": {
+            "from": "2026-03-06",
+            "to": "2026-06-06"
+        },
+        "query": {
+            "from": "2026-03-06",
+            "to": "2026-06-06"
+        }
+    },
+    "key-executives": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "key-metrics": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "key-metrics-ttm": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "key-metrics-ttm-bulk": {
+        "parameters": {},
+        "query": {}
+    },
+    "latest-financial-statements": {
+        "parameters": {
+            "page": 0,
+            "limit": 250
+        },
+        "query": {
+            "page": "0",
+            "limit": "250"
+        }
+    },
+    "levered-discounted-cash-flow": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "market-capitalization": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "market-capitalization-batch": {
+        "parameters": {
+            "symbols": "AAPL,MSFT,GOOG"
+        },
+        "query": {
+            "symbols": "AAPL,MSFT,GOOG"
+        }
+    },
+    "market-risk-premium": {
+        "parameters": {},
+        "query": {}
+    },
+    "mergers-acquisitions-latest": {
+        "parameters": {
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "mergers-acquisitions-search": {
+        "parameters": {
+            "name": "Apple"
+        },
+        "query": {
+            "name": "Apple"
+        }
+    },
+    "most-actives": {
+        "parameters": {},
+        "query": {}
+    },
+    "nasdaq-constituent": {
+        "parameters": {},
+        "query": {}
+    },
+    "news/crypto": {
+        "parameters": {
+            "symbols": "BTCUSD",
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "symbols": "BTCUSD",
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "news/crypto-latest": {
+        "parameters": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "news/forex": {
+        "parameters": {
+            "symbols": "EURUSD",
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "symbols": "EURUSD",
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "news/forex-latest": {
+        "parameters": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "news/general-latest": {
+        "parameters": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "news/press-releases": {
+        "parameters": {
+            "symbols": "AAPL",
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "symbols": "AAPL",
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "news/press-releases-latest": {
+        "parameters": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "news/stock": {
+        "parameters": {
+            "symbols": "AAPL",
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "symbols": "AAPL",
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "news/stock-latest": {
+        "parameters": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": 0,
+            "limit": 20
+        },
+        "query": {
+            "from": "2026-01-27",
+            "to": "2026-04-28",
+            "page": "0",
+            "limit": "20"
+        }
+    },
+    "owner-earnings": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5"
+        }
+    },
+    "peers-bulk": {
+        "parameters": {},
+        "query": {}
+    },
+    "price-target-consensus": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "price-target-summary": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "price-target-summary-bulk": {
+        "parameters": {},
+        "query": {}
+    },
+    "profile": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "profile-bulk": {
+        "parameters": {
+            "part": "0"
+        },
+        "query": {
+            "part": "0"
+        }
+    },
+    "profile-cik": {
+        "parameters": {
+            "cik": "320193"
+        },
+        "query": {
+            "cik": "320193"
+        }
+    },
+    "quote": {
+        "parameters": {
+            "symbol": "^VIX"
+        },
+        "query": {
+            "symbol": "^VIX"
+        }
+    },
+    "quote-short": {
+        "parameters": {
+            "symbol": "^VIX"
+        },
+        "query": {
+            "symbol": "^VIX"
+        }
+    },
+    "rating-bulk": {
+        "parameters": {},
+        "query": {}
+    },
+    "ratings-historical": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 1
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "1"
+        }
+    },
+    "ratings-snapshot": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "ratios": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 5,
+            "period": "Q1"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "5",
+            "period": "Q1"
+        }
+    },
+    "ratios-ttm": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "ratios-ttm-bulk": {
+        "parameters": {},
+        "query": {}
+    },
+    "revenue-geographic-segmentation": {
+        "parameters": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "structure": "flat"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "structure": "flat"
+        }
+    },
+    "revenue-product-segmentation": {
+        "parameters": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "structure": "flat"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "structure": "flat"
+        }
+    },
+    "scores-bulk": {
+        "parameters": {},
+        "query": {}
+    },
+    "search-cik": {
+        "parameters": {
+            "cik": "320193",
+            "limit": 50
+        },
+        "query": {
+            "cik": "320193",
+            "limit": "50"
+        }
+    },
+    "search-cusip": {
+        "parameters": {
+            "cusip": "037833100"
+        },
+        "query": {
+            "cusip": "037833100"
+        }
+    },
+    "search-exchange-variants": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "search-isin": {
+        "parameters": {
+            "isin": "US0378331005"
+        },
+        "query": {
+            "isin": "US0378331005"
+        }
+    },
+    "search-name": {
+        "parameters": {
+            "query": "AA",
+            "limit": 50,
+            "exchange": "NASDAQ"
+        },
+        "query": {
+            "query": "AA",
+            "limit": "50",
+            "exchange": "NASDAQ"
+        }
+    },
+    "search-symbol": {
+        "parameters": {
+            "query": "AAPL",
+            "limit": 50,
+            "exchange": "NASDAQ"
+        },
+        "query": {
+            "query": "AAPL",
+            "limit": "50",
+            "exchange": "NASDAQ"
+        }
+    },
+    "sec-filings-8k": {
+        "parameters": {
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "sec-filings-company-search/cik": {
+        "parameters": {
+            "cik": "0000320193"
+        },
+        "query": {
+            "cik": "0000320193"
+        }
+    },
+    "sec-filings-company-search/name": {
+        "parameters": {
+            "company": "Berkshire"
+        },
+        "query": {
+            "company": "Berkshire"
+        }
+    },
+    "sec-filings-company-search/symbol": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "sec-filings-financials": {
+        "parameters": {
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "sec-filings-search/cik": {
+        "parameters": {
+            "cik": "0000320193",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "cik": "0000320193",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "sec-filings-search/form-type": {
+        "parameters": {
+            "formType": "8-K",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "formType": "8-K",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "sec-filings-search/symbol": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2024-01-01",
+            "to": "2024-03-01",
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "sec-profile": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "sector-pe-snapshot": {
+        "parameters": {
+            "date": "2024-02-01",
+            "exchange": "NASDAQ",
+            "sector": "Energy"
+        },
+        "query": {
+            "date": "2024-02-01",
+            "exchange": "NASDAQ",
+            "sector": "Energy"
+        }
+    },
+    "sector-performance-snapshot": {
+        "parameters": {
+            "date": "2024-02-01",
+            "exchange": "NASDAQ",
+            "sector": "Energy"
+        },
+        "query": {
+            "date": "2024-02-01",
+            "exchange": "NASDAQ",
+            "sector": "Energy"
+        }
+    },
+    "senate-latest": {
+        "parameters": {
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "senate-net-worth": {
+        "parameters": {
+            "senateID": "P000197"
+        },
+        "query": {
+            "senateID": "P000197"
+        }
+    },
+    "senate-net-worth-aggregated": {
+        "parameters": {
+            "senateID": "P000197",
+            "totalsCol": ""
+        },
+        "query": {
+            "senateID": "P000197",
+            "totalsCol": ""
+        }
+    },
+    "senate-positions": {
+        "parameters": {
+            "senateID": "P000197",
+            "party": "Republican",
+            "position": "Representative",
+            "page": 0,
+            "limit": 300
+        },
+        "query": {
+            "senateID": "P000197",
+            "party": "Republican",
+            "position": "Representative",
+            "page": "0",
+            "limit": "300"
+        }
+    },
+    "senate-profile": {
+        "parameters": {
+            "active": true,
+            "senateID": "P000197",
+            "latestParty": "Republican",
+            "latestPosition": "Representative",
+            "page": 0,
+            "limit": 500
+        },
+        "query": {
+            "active": "true",
+            "senateID": "P000197",
+            "latestParty": "Republican",
+            "latestPosition": "Representative",
+            "page": "0",
+            "limit": "500"
+        }
+    },
+    "senate-trades": {
+        "parameters": {
+            "symbol": "AAPL",
+            "page": 0,
+            "limit": 100
+        },
+        "query": {
+            "symbol": "AAPL",
+            "page": "0",
+            "limit": "100"
+        }
+    },
+    "senate-trades-by-id": {
+        "parameters": {
+            "page": 0,
+            "limit": 100,
+            "senateID": "S000033"
+        },
+        "query": {
+            "page": "0",
+            "limit": "100",
+            "senateID": "S000033"
+        }
+    },
+    "senate-trades-by-name": {
+        "parameters": {
+            "name": "Jerry"
+        },
+        "query": {
+            "name": "Jerry"
+        }
+    },
+    "shares-float": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "shares-float-all": {
+        "parameters": {
+            "limit": 1000,
+            "page": 0
+        },
+        "query": {
+            "limit": "1000",
+            "page": "0"
+        }
+    },
+    "sp500-constituent": {
+        "parameters": {},
+        "query": {}
+    },
+    "splits": {
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 100
+        },
+        "query": {
+            "symbol": "AAPL",
+            "limit": "100"
+        }
+    },
+    "splits-calendar": {
+        "parameters": {
+            "from": "2026-03-06",
+            "to": "2026-06-06",
+            "page": 0
+        },
+        "query": {
+            "from": "2026-03-06",
+            "to": "2026-06-06",
+            "page": "0"
+        }
+    },
+    "standard-industrial-classification-list": {
+        "parameters": {
+            "industryTitle": "SERVICES",
+            "sicCode": "7371"
+        },
+        "query": {
+            "industryTitle": "SERVICES",
+            "sicCode": "7371"
+        }
+    },
+    "stock-list": {
+        "parameters": {},
+        "query": {}
+    },
+    "stock-peers": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "stock-price-change": {
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "query": {
+            "symbol": "AAPL"
+        }
+    },
+    "symbol-change": {
+        "parameters": {
+            "invalid": "false",
+            "limit": 100
+        },
+        "query": {
+            "invalid": "false",
+            "limit": "100"
+        }
+    },
+    "technical-indicators/adx": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "technical-indicators/dema": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "technical-indicators/ema": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "technical-indicators/rsi": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "technical-indicators/sma": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "technical-indicators/standarddeviation": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "technical-indicators/tema": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "technical-indicators/williams": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "technical-indicators/wma": {
+        "parameters": {
+            "symbol": "AAPL",
+            "periodLength": 10,
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "periodLength": "10",
+            "timeframe": "1day",
+            "from": "2026-03-01",
+            "to": "2026-06-01"
+        }
+    },
+    "tipranks-analyst-summary": {
+        "parameters": {
+            "expertUID": "3c6eb8cf1347a4e5757e628fccb684a93abee587",
+            "from": "2025-06-10",
+            "to": "2026-06-10"
+        },
+        "query": {
+            "expertUID": "3c6eb8cf1347a4e5757e628fccb684a93abee587",
+            "from": "2025-06-10",
+            "to": "2026-06-10"
+        }
+    },
+    "tipranks-analysts": {
+        "parameters": {
+            "page": 0,
+            "limit": 1000,
+            "firmName": "Morgan Stanley"
+        },
+        "query": {
+            "page": "0",
+            "limit": "1000",
+            "firmName": "Morgan Stanley"
+        }
+    },
+    "tipranks-firm-summary": {
+        "parameters": {
+            "firmName": "Morgan Stanley",
+            "from": "2025-06-10",
+            "to": "2026-06-10"
+        },
+        "query": {
+            "firmName": "Morgan Stanley",
+            "from": "2025-06-10",
+            "to": "2026-06-10"
+        }
+    },
+    "tipranks-pit-analyst": {
+        "parameters": {
+            "expertUID": "",
+            "analystName": "Analyst Name",
+            "date": "2026-06-10",
+            "limit": 100,
+            "page": 0,
+            "nonadjusted": false
+        },
+        "query": {
+            "expertUID": "",
+            "analystName": "Analyst Name",
+            "date": "2026-06-10",
+            "limit": "100",
+            "page": "0",
+            "nonadjusted": "false"
+        }
+    },
+    "tipranks-pit-symbol": {
+        "parameters": {
+            "symbol": "AAPL",
+            "date": "2026-06-10",
+            "limit": 100,
+            "page": 0,
+            "nonadjusted": false
+        },
+        "query": {
+            "symbol": "AAPL",
+            "date": "2026-06-10",
+            "limit": "100",
+            "page": "0",
+            "nonadjusted": "false"
+        }
+    },
+    "tipranks-search": {
+        "parameters": {
+            "expertUID": "",
+            "symbol": "AAPL",
+            "from": "2025-06-10",
+            "to": "2026-06-10",
+            "limit": 100,
+            "page": 0,
+            "nonadjusted": false
+        },
+        "query": {
+            "expertUID": "",
+            "symbol": "AAPL",
+            "from": "2025-06-10",
+            "to": "2026-06-10",
+            "limit": "100",
+            "page": "0",
+            "nonadjusted": "false"
+        }
+    },
+    "tipranks-symbol-summary": {
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2025-06-10",
+            "to": "2026-06-10"
+        },
+        "query": {
+            "symbol": "AAPL",
+            "from": "2025-06-10",
+            "to": "2026-06-10"
+        }
+    },
+    "treasury-rates": {
+        "parameters": {
+            "from": "2026-01-27",
+            "to": "2026-04-27"
+        },
+        "query": {
+            "from": "2026-01-27",
+            "to": "2026-04-27"
+        }
+    },
+    "upgrades-downgrades-consensus-bulk": {
+        "parameters": {},
+        "query": {}
+    }
+}

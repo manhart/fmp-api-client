@@ -1,0 +1,41 @@
+{
+    "name": "manhart/fmp-api-client",
+    "description": "Typed Financial Modeling Prep client for Stable and Legacy APIs",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-ctype": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^13.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Manhart\\Fmp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Manhart\\Fmp\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "generate": "php tools/generate.php"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "archive": {
+        "exclude": [
+            "/vendor",
+            "/.recordings",
+            "/.phpunit.cache",
+            "/.env",
+            "/composer.lock"
+        ]
+    }
+}

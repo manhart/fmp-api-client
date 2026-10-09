@@ -1,0 +1,424 @@
+{
+    "getAvailableEuronextSymbols": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\AvailableEuronext",
+        "endpoint": "v3/symbol/available-euronext",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getAvailableTradedList": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\AvailableTradedList",
+        "endpoint": "v3/available-traded/list",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getBalanceSheetStatement": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\BalanceSheetStatement",
+        "endpoint": "v3/balance-sheet-statement",
+        "parameters": {
+            "symbolOrCIK": "AAPL",
+            "period": "annual",
+            "dataType": "json",
+            "limit": 1
+        },
+        "types": {
+            "symbolOrCIK": "string|int",
+            "period": "?string",
+            "dataType": "?string",
+            "limit": "?int"
+        },
+        "large": false
+    },
+    "getCIK": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CIK",
+        "endpoint": "v3/cik",
+        "parameters": {
+            "CIK": "0001067983"
+        },
+        "types": {
+            "CIK": "string|int"
+        },
+        "large": false
+    },
+    "getCIKList": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CIKList",
+        "endpoint": "v3/cik_list",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getCUSIP": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CUSIP",
+        "endpoint": "v3/cusip",
+        "parameters": {
+            "CUSIP": "037833100"
+        },
+        "types": {
+            "CUSIP": "string"
+        },
+        "large": false
+    },
+    "getCashflowStatement": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CashflowStatement",
+        "endpoint": "v3/cash-flow-statement",
+        "parameters": {
+            "symbolOrCIK": "AAPL",
+            "period": "annual",
+            "dataType": "json",
+            "limit": 1
+        },
+        "types": {
+            "symbolOrCIK": "string|int",
+            "period": "?string",
+            "dataType": "?string",
+            "limit": "?int"
+        },
+        "large": false
+    },
+    "getCommitmentOfTradersReportList": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CommitmentOfTradersReportList",
+        "endpoint": "v4/commitment_of_traders_report/list",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getCompanyCoreInformation": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CompanyCoreInformation",
+        "endpoint": "v4/company-core-information",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getCompanyNotes": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CompanyNotes",
+        "endpoint": "v4/company-notes",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getDelistedCompanies": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\DelistedCompanies",
+        "endpoint": "v3/delisted-companies",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getEmployeeCount": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\EmployeeCount",
+        "endpoint": "v4/employee_count",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getEtfList": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\EtfList",
+        "endpoint": "v3/etf/list",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getExchangeSymbols": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\ExchangeSymbols",
+        "endpoint": "v3/symbol",
+        "parameters": {
+            "exchange": "NASDAQ"
+        },
+        "types": {
+            "exchange": "string"
+        },
+        "large": false
+    },
+    "getExecutiveCompensation": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\ExecutiveCompensation",
+        "endpoint": "v4/governance/executive_compensation",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getExecutiveCompensationBenchmark": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\ExecutiveCompensationBenchmark",
+        "endpoint": "v4/executive-compensation-benchmark",
+        "parameters": {
+            "year": 2022
+        },
+        "types": {
+            "year": "int"
+        },
+        "large": false
+    },
+    "getFinancialStatementSymbolLists": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\FinancialStatementSymbolLists",
+        "endpoint": "v3/financial-statement-symbol-lists",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getGrade": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\Grade",
+        "endpoint": "v3/grade",
+        "parameters": {
+            "symbol": "AAPL",
+            "limit": 1
+        },
+        "types": {
+            "symbol": "string",
+            "limit": "?int"
+        },
+        "large": false
+    },
+    "getHistoricalEmployeeCount": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\HistoricalEmployeeCount",
+        "endpoint": "v4/historical/employee_count",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getHistoricalPrice": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\HistoricalPrice",
+        "endpoint": "v3/historical-price-full",
+        "parameters": {
+            "symbol": "AAPL",
+            "from": "2024-01-02",
+            "to": "2024-01-03",
+            "timeseries": 1
+        },
+        "types": {
+            "symbol": "string",
+            "from": "?DateTimeInterface",
+            "to": "?DateTimeInterface",
+            "timeseries": "?int"
+        },
+        "large": false
+    },
+    "getIncomeStatement": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\IncomeStatement",
+        "endpoint": "v3/income-statement",
+        "parameters": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "dataType": "json",
+            "limit": 1
+        },
+        "types": {
+            "symbol": "string",
+            "period": "?string",
+            "dataType": "?string",
+            "limit": "?int"
+        },
+        "large": false
+    },
+    "getPriceTarget": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\PriceTarget",
+        "endpoint": "v4/price-target",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getProfile": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\Profile",
+        "endpoint": "v3/profile",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getQuote": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\Quote",
+        "endpoint": "v3/quote",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "array|string"
+        },
+        "large": false
+    },
+    "getQuoteShort": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\QuoteShort",
+        "endpoint": "v3/quote-short",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getShareFloat": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\ShareFloat",
+        "endpoint": "v4/shares_float",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "?string"
+        },
+        "large": false
+    },
+    "getStockDividend": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\StockDividend",
+        "endpoint": "v3/historical-price-full/stock_dividend",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getStockDividendCalendar": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\StockDividendCalendar",
+        "endpoint": "v3/stock_dividend_calendar",
+        "parameters": {
+            "from": "2024-01-02",
+            "to": "2024-01-03"
+        },
+        "types": {
+            "from": "?DateTimeInterface",
+            "to": "?DateTimeInterface"
+        },
+        "large": false
+    },
+    "getStockList": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\StockList",
+        "endpoint": "v3/stock/list",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getStockScreener": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\StockScreener",
+        "endpoint": "v3/stock-screener",
+        "parameters": [],
+        "types": {
+            "params": ""
+        },
+        "large": false
+    },
+    "getStockSplit": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\StockSplit",
+        "endpoint": "v3/historical-price-full/stock_split",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "getStockSplitCalendar": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\StockSplitCalendar",
+        "endpoint": "v3/stock_split_calendar",
+        "parameters": {
+            "from": "2024-01-02",
+            "to": "2024-01-03"
+        },
+        "types": {
+            "from": "?DateTimeInterface",
+            "to": "?DateTimeInterface"
+        },
+        "large": false
+    },
+    "getSymbolChanges": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\SymbolChange",
+        "endpoint": "v4/symbol_change",
+        "parameters": [],
+        "types": [],
+        "large": false
+    },
+    "getUpgradesDowngrades": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\UpgradesDowngrades",
+        "endpoint": "v4/upgrades-downgrades",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "large": false
+    },
+    "search": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\Search",
+        "endpoint": "v3/search",
+        "parameters": {
+            "query": "Apple",
+            "limit": 1,
+            "exchange": "NASDAQ"
+        },
+        "types": {
+            "query": "string",
+            "limit": "?int",
+            "exchange": "?string"
+        },
+        "large": false
+    },
+    "searchCIKByName": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CIKSearch",
+        "endpoint": "v3/cik-search",
+        "parameters": {
+            "companyName": "Apple"
+        },
+        "types": {
+            "companyName": "string"
+        },
+        "large": false
+    },
+    "searchName": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\SearchName",
+        "endpoint": "v3/search-name",
+        "parameters": {
+            "query": "Apple",
+            "limit": 1,
+            "exchange": "NASDAQ"
+        },
+        "types": {
+            "query": "string",
+            "limit": "?int",
+            "exchange": "?string"
+        },
+        "large": false
+    },
+    "searchTicker": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\SearchTicker",
+        "endpoint": "v3/search-ticker",
+        "parameters": {
+            "query": "AAPL",
+            "limit": 1,
+            "exchange": "NASDAQ"
+        },
+        "types": {
+            "query": "string",
+            "limit": "?int",
+            "exchange": "?string"
+        },
+        "large": false
+    }
+}
