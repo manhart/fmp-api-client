@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Tests;
 
 use Manhart\Fmp\Exception\ResponseException;
@@ -41,9 +44,30 @@ final class PayloadTest extends TestCase
 
     public function testEmptyResponses(): void
     {
-        foreach (['', " \r\n", '[]', "symbol,price\n"] as $payload) {
+        foreach (['', " \r\n", "\xEF\xBB\xBF", " \t\xEF\xBB\xBF \r\n", '[]', "symbol,price\n"] as $payload) {
             $this->assertSame([], PayloadDecoder::decode($payload));
         }
+    }
+
+    public function testOnlyTheCompleteUtf8BomIsRemoved(): void
+    {
+        // Fullwidth/Arabic headers start with EF or EF/BB, which the former mask stripped.
+        foreach (['Ａ', 'ﻡ', '»', '¿'] as $header) {
+            foreach (['', "\xEF\xBB\xBF", " \t\xEF\xBB\xBF \r\n"] as $prefix) {
+                $this->assertSame([
+                    [$header => 'DEMO', 'price' => '12.5'],
+                ], PayloadDecoder::decode($prefix.$header.",price\nDEMO,12.5\n"));
+            }
+        }
+        $this->assertSame(['symbol' => 'Ａ'], PayloadDecoder::decode("\xEF\xBB\xBF {\"symbol\":\"Ａ\"}"));
+    }
+
+    public function testRestrictedEndpointProseWithACommaIsAnApiError(): void
+    {
+        $message = 'Restricted Endpoint: unavailable under your subscription, please contact support.';
+        $this->expectException(ResponseException::class);
+        $this->expectExceptionMessage($message);
+        PayloadDecoder::decode($message."\nDetails");
     }
 
     public static function invalidPayloads(): iterable
@@ -52,6 +76,7 @@ final class PayloadTest extends TestCase
         yield 'API message' => ['{"Error Message":"Invalid API key"}'];
         yield 'API status' => ['{"status":404,"error":"Not Found","message":"Missing"}'];
         yield 'query error' => ["Query Error: unavailable\nDetails"];
+        yield 'restricted endpoint with comma' => ['Restricted Endpoint: unavailable, please contact support.'];
         yield 'HTML error' => ['<html><body>error, unavailable</body></html>'];
         yield 'plain text' => ['Service unavailable'];
         yield 'short CSV row' => ["symbol,price\nDEMO\n"];

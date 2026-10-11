@@ -1,25 +1,21 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * Grade.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class Grade extends Response
+/** Analyst rating changes and the publishing firms. */
+class Grade extends AbstractResponse
 {
     protected static string $url = 'v3/grade';
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
-        return $this->getResponseValue('symbol');
+        return $this->getResponseValueAsString('symbol');
     }
 
     public function getDate(): ?\DateTimeInterface
@@ -27,17 +23,17 @@ class Grade extends Response
         return $this->getResponseValueAsDate('date');
     }
 
-    public function getGradingCompany(): string
+    public function getGradingCompany(): ?string
     {
         return $this->getResponseValueAsString('gradingCompany');
     }
 
-    public function getPreviousGrade(): string
+    public function getPreviousGrade(): ?string
     {
         return $this->getResponseValueAsString('previousGrade');
     }
 
-    public function getNewGrade(): string
+    public function getNewGrade(): ?string
     {
         return $this->getResponseValueAsString('newGrade');
     }

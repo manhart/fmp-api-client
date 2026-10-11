@@ -1,25 +1,21 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * ShareFloat.php created on 10.03.26, 23:23.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class ShareFloat extends Response
+/** Reported share counts and publicly tradable float for one or all symbols. */
+class ShareFloat extends AbstractResponse
 {
     protected static string $url = 'v4/shares_float';
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
-        return $this->getResponseValue('symbol');
+        return $this->getResponseValueAsString('symbol');
     }
 
     public function getDate(): ?\DateTimeInterface
@@ -44,6 +40,6 @@ class ShareFloat extends Response
 
     public function getSource(): ?string
     {
-        return $this->getResponseValue('source');
+        return $this->getResponseValueAsString('source');
     }
 }

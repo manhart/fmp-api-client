@@ -1,8 +1,29 @@
 {
     "name": "manhart/fmp-api-client",
-    "description": "Typed Financial Modeling Prep client for Stable and Legacy APIs",
+    "description": "Typed PHP client for Financial Modeling Prep (FMP), supporting Stable endpoints and Legacy APIs",
+    "keywords": [
+        "api-client",
+        "composer",
+        "etf",
+        "financial-data",
+        "financial-modeling-prep",
+        "fmp",
+        "php",
+        "stocks"
+    ],
+    "homepage": "https://github.com/manhart/fmp-api-client",
     "type": "library",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Manhart",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/manhart/fmp-api-client/issues",
+        "source": "https://github.com/manhart/fmp-api-client"
+    },
     "require": {
         "php": ">=8.4",
         "ext-curl": "*",

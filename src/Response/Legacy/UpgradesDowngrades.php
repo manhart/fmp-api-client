@@ -1,19 +1,15 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * UpgradesDowngrades.php created on 10.03.26, 23:23.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class UpgradesDowngrades extends Response
+/** Analyst rating changes from the Legacy dataset. */
+class UpgradesDowngrades extends AbstractResponse
 {
     protected static string $url = 'v4/upgrades-downgrades';
 
@@ -24,22 +20,22 @@ class UpgradesDowngrades extends Response
 
     public function getNewGrade(): ?string
     {
-        return $this->getResponseValue('newGrade');
+        return $this->getResponseValueAsString('newGrade');
     }
 
     public function getPreviousGrade(): ?string
     {
-        return $this->getResponseValue('previousGrade');
+        return $this->getResponseValueAsString('previousGrade');
     }
 
     public function getGradingCompany(): ?string
     {
-        return $this->getResponseValue('gradingCompany');
+        return $this->getResponseValueAsString('gradingCompany');
     }
 
     public function getAction(): ?string
     {
-        return $this->getResponseValue('action');
+        return $this->getResponseValueAsString('action');
     }
 
     public function getPriceWhenPosted(): float
@@ -49,20 +45,20 @@ class UpgradesDowngrades extends Response
 
     public function getNewsBaseURL(): ?string
     {
-        return $this->getResponseValue('newsBaseURL');
+        return $this->getResponseValueAsString('newsBaseURL');
     }
 
     public function getNewsPublisher(): ?string
     {
-        return $this->getResponseValue('newsPublisher');
+        return $this->getResponseValueAsString('newsPublisher');
     }
 
     public function getNewsURL(): ?string
     {
-        return $this->getResponseValue('newsURL');
+        return $this->getResponseValueAsString('newsURL');
     }
 
-    public function getNewsTitle(): string
+    public function getNewsTitle(): ?string
     {
         return $this->getResponseValueAsString('newsTitle');
     }

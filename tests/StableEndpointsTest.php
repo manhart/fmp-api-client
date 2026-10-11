@@ -1,19 +1,33 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Tests;
 
 use Manhart\Fmp\Enum\Period;
 use Manhart\Fmp\Enum\ReportPeriod;
 use Manhart\Fmp\Enum\Timeframe;
 use Manhart\Fmp\Response\FileResponse;
-use Manhart\Fmp\Response\Stable\StableEndpointRegistry;
+use Manhart\Fmp\Response\Stable\EndpointRegistry;
 use Manhart\Fmp\Tests\Support\FixtureClient;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class StableEndpointsTest extends TestCase
 {
+    public function testGeneratedFilesMatchTheManifestExactly(): void
+    {
+        $manifest = json_decode(file_get_contents(__DIR__.'/../resources/endpoints.json'), true, 512, JSON_THROW_ON_ERROR);
+        $expected = ['EndpointRegistry.php'];
+        foreach ($manifest['endpoints'] as $endpoint) {
+            $expected[] = $endpoint['class'].'.php';
+        }
+        $actual = array_map(basename(...), glob(__DIR__.'/../src/Response/Stable/*.php'));
+        $this->assertEqualsCanonicalizing($expected, $actual, 'Review and remove obsolete generated classes after manifest changes.');
+    }
+
     public static function documentedRequests(): iterable
     {
         $requests = json_decode(file_get_contents(__DIR__.'/fixtures/documented-requests.json'), true, 512, JSON_THROW_ON_ERROR);
@@ -26,7 +40,7 @@ final class StableEndpointsTest extends TestCase
     public function testEveryDocumentedParameterReachesTheWire(string $endpoint, array $parameters, array $expectedQuery): void
     {
         $client = new FixtureClient();
-        $class = StableEndpointRegistry::resolve($endpoint);
+        $class = EndpointRegistry::resolve($endpoint);
         $this->assertSame('stable/'.$endpoint, $class::getUrl());
         if (is_subclass_of($class, FileResponse::class)) {
             $client->payload = file_get_contents(__DIR__.'/fixtures/workbook.xlsx');
@@ -45,13 +59,13 @@ final class StableEndpointsTest extends TestCase
             $this->assertCount(1, $response);
             $this->assertSame('SYNTHETIC', $response->getResponseValueAsString('symbol'));
         }
-        $this->assertSame($class, StableEndpointRegistry::resolve('/stable/'.$endpoint));
+        $this->assertSame($class, EndpointRegistry::resolve('/stable/'.$endpoint));
     }
 
     #[DataProvider('documentedRequests')]
     public function testOptionalNullsAreOmitted(string $endpoint, array $parameters, array $expectedQuery): void
     {
-        $class = StableEndpointRegistry::resolve($endpoint);
+        $class = EndpointRegistry::resolve($endpoint);
         $method = new \ReflectionMethod($class, 'fetch');
         $optional = [];
         foreach ($method->getParameters() as $parameter) {

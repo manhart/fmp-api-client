@@ -1,36 +1,32 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * IncomeStatement.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class IncomeStatement extends Response
+/** Income-statement rows in the requested reporting frequency and JSON/CSV format. */
+class IncomeStatement extends AbstractResponse
 {
     protected static string $url = 'v3/income-statement';
 
     public const PERIOD_QUARTER = 'quarter';
     public const PERIOD_ANNUAL = 'annual';
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
         return $this->getResponseValueAsString('symbol');
     }
 
-    public function getDate(): \DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
         return $this->getResponseValueAsDate('date');
     }
 
-    public function getReportedCurrency(): string
+    public function getReportedCurrency(): ?string
     {
         return $this->getResponseValueAsString('reportedCurrency');
     }
@@ -42,7 +38,7 @@ class IncomeStatement extends Response
 
     public function getCIK(): ?string
     {
-        return $this->getResponseValue('cik') ?: null;
+        return $this->getResponseValueAsString('cik') ?: null;
     }
 
     public function getFillingDate(): ?\DateTimeInterface
@@ -60,7 +56,7 @@ class IncomeStatement extends Response
         return $this->getResponseValueAsInt('calendarYear') ?: null;
     }
 
-    public function getPeriod(): string
+    public function getPeriod(): ?string
     {
         return $this->getResponseValueAsString('period');
     }
@@ -205,12 +201,12 @@ class IncomeStatement extends Response
         return $this->getResponseValueAsFloat('weightedAverageShsOutDil');
     }
 
-    public function getLink(): string
+    public function getLink(): ?string
     {
         return $this->getResponseValueAsString('link');
     }
 
-    public function getFinalLink(): string
+    public function getFinalLink(): ?string
     {
         return $this->getResponseValueAsString('finalLink');
     }

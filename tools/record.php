@@ -2,6 +2,9 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 require dirname(__DIR__).'/vendor/autoload.php';
 
 use Manhart\Fmp\Client\FmpApiClient;
@@ -15,7 +18,7 @@ Usage: php tools/record.php [options]
   --plan                    Show selected requests without API calls
   --offline                 Replay recordings without API calls
   --endpoint=PATH           Select one Stable path or legacy:methodName
-  --include-legacy          Include the 38 existing Legacy method cases
+  --include-legacy          Include supported Legacy method cases
   --include-large           Include Bulk/XLSX/full financial report cases
   --refresh                 Re-record a selected endpoint (requires --endpoint)
   --max-bytes=N             Received body budget per run (default 1073741824)
@@ -72,10 +75,7 @@ try {
     $userId = function_exists('posix_geteuid') ? (string)posix_geteuid() : substr(hash('sha256', getenv('USERNAME') ?: get_current_user()), 0, 16);
     $directory = $options['cache-dir'] ?? sys_get_temp_dir().'/manhart-fmp-recordings-'.$userId;
     $cache = new CaptureCache($directory);
-    $lock = fopen($directory.'/.lock', 'c');
-    if ($lock === false || !flock($lock, LOCK_EX | LOCK_NB)) {
-        throw new RuntimeException('Another recorder is already running.');
-    }
+    $lock = $cache->acquireLock();
     $factory = static function (int $remaining): FmpApiClient {
         $key = getenv('FMP_API_KEY');
         if ($key === false || $key === '') {
@@ -96,7 +96,7 @@ try {
         }
     }
     $summary = $recorder->statistics();
-    file_put_contents($directory.'/report.json', json_encode(['statistics' => $summary, 'cases' => $report], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n");
+    $cache->writeReport(['statistics' => $summary, 'cases' => $report]);
     echo json_encode($summary, JSON_THROW_ON_ERROR)."\n";
     flock($lock, LOCK_UN);
     fclose($lock);

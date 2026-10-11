@@ -1,18 +1,30 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Client;
 
 use Manhart\Fmp\HttpResponse;
 use Manhart\Fmp\Exception\CurlException;
-use Manhart\Fmp\Exception\ResponseException;
+use Manhart\Fmp\Exception\HttpException;
 
+/** Shared HTTP transport; credentials and request counters belong to each instance. */
 abstract class AbstractApiClient
 {
+    private const int ERROR_BODY_EXCERPT_BYTES = 2048;
+
     protected string $baseUrl = 'https://financialmodelingprep.com';
     private int $requests = 0;
     private string $lastEndpointURL = '';
 
+    /**
+     * @param string $apiKey Supplied by the application.
+     * @param int $timeoutSeconds Total transfer timeout in seconds.
+     * @param int $connectTimeoutSeconds Connection timeout in seconds.
+     * @param int|null $maxResponseBytes Per-request body limit; null leaves it unlimited.
+     */
     public function __construct(
         private readonly string $apiKey,
         private readonly int $timeoutSeconds = 60,
@@ -27,7 +39,15 @@ abstract class AbstractApiClient
         }
     }
 
-    /** Performs one HTTP request. Does not retry or paginate. */
+    /**
+     * Send one request and return its undecoded body, including HTTP error responses.
+     * No retries or pagination; transfer failures and byte limits raise CurlException.
+     *
+     * @param string $endpoint Relative route, e.g. stable/profile or v3/quote.
+     * @param array $params Leading positional values become path segments; named values
+     *     become query parameters. Null values are omitted; dates use YYYY-MM-DD.
+     * @throws \JsonException
+     */
     public function request(string $endpoint, array $params = []): HttpResponse
     {
         $url = $this->buildEndpointURL($endpoint, $params);
@@ -81,15 +101,30 @@ abstract class AbstractApiClient
         return new HttpResponse($body, $status, $contentType, $receivedBytes);
     }
 
+    /**
+     * Return the body of a successful request; reject non-2xx HTTP status codes.
+     * @throws CurlException If the transfer fails or exceeds its byte limit.
+     * @throws HttpException For non-2xx responses, retaining redacted diagnostic details.
+     * @throws \JsonException
+     */
     public function executeCurl(string $endpoint, array $params = []): string
     {
         $response = $this->request($endpoint, $params);
         if ($response->status < 200 || $response->status >= 300) {
-            throw new ResponseException('FMP HTTP '.$response->status.' for '.$this->lastEndpointURL, $response->status);
+            throw new HttpException(
+                status: $response->status,
+                endpointURL: $this->lastEndpointURL,
+                bodyExcerpt: substr($this->redact($response->body), 0, self::ERROR_BODY_EXCERPT_BYTES),
+                receivedBytes: $response->receivedBytes,
+            );
         }
         return $response->body;
     }
 
+    /**
+     * Build and remember the diagnostic URL; authentication is added only when sending.
+     * @throws \JsonException
+     */
     protected function buildEndpointURL(string $endpoint, array $params): string
     {
         $endpoint = ltrim($endpoint, '/');
@@ -112,6 +147,10 @@ abstract class AbstractApiClient
         return $url;
     }
 
+    /**
+     * Serialize enum values, local calendar dates, comma-separated lists, and textual booleans.
+     * @throws \JsonException
+     */
     private static function formatParameter(string|int|float|bool|array|\BackedEnum|\DateTimeInterface|null $value): string|int|float|null
     {
         return match (true) {
@@ -124,19 +163,19 @@ abstract class AbstractApiClient
         };
     }
 
+    /** Replace the literal and URL-encoded key in diagnostic text or captured payloads. */
     public function redact(string $text): string
     {
         return str_replace([$this->apiKey, rawurlencode($this->apiKey)], '[REDACTED]', $text);
     }
 
-    /**
-     * @return int Amount of Requests
-     */
+    /** Count attempted transfers, including failures; planning and replay do not increment it. */
     public function getRequests(): int
     {
         return $this->requests;
     }
 
+    /** Last diagnostic URL without authentication, or an empty string before any request. */
     public function getLastEndpointURL(): string
     {
         return $this->lastEndpointURL;

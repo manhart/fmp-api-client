@@ -1,10 +1,13 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Tests;
 
 use Manhart\Fmp\Client\FmpApiClient;
-use Manhart\Fmp\Response\Stable\StableEndpointRegistry;
+use Manhart\Fmp\Response\Stable\EndpointRegistry;
 use Manhart\Fmp\Tests\Support\FixtureClient;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -26,7 +29,7 @@ final class ClientShortcutsTest extends TestCase
     {
         $client = new FixtureClient();
         $response = $client->$method(...$parameters);
-        $this->assertInstanceOf(StableEndpointRegistry::resolve($endpoint), $response);
+        $this->assertInstanceOf(EndpointRegistry::resolve($endpoint), $response);
         $this->assertCount(1, $client->calls);
         $this->assertSame('/stable/'.$endpoint, parse_url($client->urls[0], PHP_URL_PATH));
         parse_str(parse_url($client->urls[0], PHP_URL_QUERY) ?? '', $actualQuery);
@@ -38,7 +41,7 @@ final class ClientShortcutsTest extends TestCase
     public function testShortcutKeepsEndpointSignatureAndOmitsOptionalNulls(string $method, string $endpoint, array $parameters, array $expectedQuery): void
     {
         $shortcut = new \ReflectionMethod(FmpApiClient::class, $method);
-        $factory = new \ReflectionMethod(StableEndpointRegistry::resolve($endpoint), 'fetch');
+        $factory = new \ReflectionMethod(EndpointRegistry::resolve($endpoint), 'fetch');
         $factoryParameters = array_slice($factory->getParameters(), 1);
         $this->assertCount(count($factoryParameters), $shortcut->getParameters());
         foreach ($shortcut->getParameters() as $index => $parameter) {
@@ -52,7 +55,7 @@ final class ClientShortcutsTest extends TestCase
                 unset($expectedQuery[$parameter->getName()]);
             }
         }
-        $this->assertSame(StableEndpointRegistry::resolve($endpoint), (string)$shortcut->getReturnType());
+        $this->assertSame(EndpointRegistry::resolve($endpoint), (string)$shortcut->getReturnType());
         $client = new FixtureClient();
         $client->$method(...$parameters);
         parse_str(parse_url($client->urls[0], PHP_URL_QUERY) ?? '', $actualQuery);

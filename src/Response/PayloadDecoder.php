@@ -1,15 +1,29 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Response;
 
 use Manhart\Fmp\Exception\ResponseException;
 
+/** Decode FMP JSON/CSV while rejecting provider error messages and unexpected HTML/XML. */
 final class PayloadDecoder
 {
+    /**
+     * Preserve JSON object/list shape; CSV becomes associative rows with string values.
+     * Empty bodies yield an empty array. Scalar conversion belongs to response getters.
+     *
+     * @throws \JsonException If a JSON body cannot be decoded.
+     * @throws ResponseException For provider errors or invalid/non-CSV text payloads.
+     */
     public static function decode(string $payload): array
     {
-        $trimmed = ltrim($payload, "\xEF\xBB\xBF \t\r\n");
+        $trimmed = ltrim($payload, " \t\r\n");
+        if (str_starts_with($trimmed, "\xEF\xBB\xBF")) {
+            $trimmed = ltrim(substr($trimmed, 3), " \t\r\n");
+        }
         if ($trimmed === '') {
             return [];
         }
@@ -18,7 +32,7 @@ final class PayloadDecoder
             self::throwApiErrors($data);
             return $data;
         }
-        if (str_starts_with($trimmed, 'Query Error:')) {
+        if (str_starts_with($trimmed, 'Query Error:') || str_starts_with($trimmed, 'Restricted Endpoint:')) {
             throw new ResponseException(substr($trimmed, 0, strcspn($trimmed, "\r\n")));
         }
         if ($trimmed[0] === '<') {

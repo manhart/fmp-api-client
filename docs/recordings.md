@@ -19,6 +19,15 @@ php tools/record.php --endpoint=profile-bulk --include-large
 # Existing Legacy calls are opt-in:
 php tools/record.php --include-legacy
 
+# Inspect and record one Legacy fundamentals case:
+php tools/record.php --plan --endpoint=legacy:getKeyMetrics
+php tools/record.php --endpoint=legacy:getKeyMetrics
+
+# Legacy bulks require explicit large-download selection, even for one case:
+php tools/record.php --plan --endpoint=legacy:getKeyMetricsBulk --include-large
+php tools/record.php --endpoint=legacy:getKeyMetricsBulk --include-large
+php tools/record.php --offline --endpoint=legacy:getKeyMetricsBulk --include-large
+
 # Replay all recorded cases without a key or network access:
 php tools/record.php --offline --include-legacy --include-large
 
@@ -34,7 +43,13 @@ Defaults are 60 requests/minute and 1 GiB of received response-body bytes per in
 
 `--max-bytes=N` and `--rate=N` override the defaults. Bulk and full financial-report captures require `--include-large`. These endpoints may return substantial files despite minimal parameters. Only one parameter case is selected per endpoint; it is not a crawl of every page or Bulk part.
 
-By default, private recordings live in the user-specific temporary directory `manhart-fmp-recordings-<uid>`, outside the web document root. For durable recordings, select a private persistent directory with `--cache-dir`. Keep that directory outside any served web root and reuse it on later runs. Temporary-directory cleanup can remove recordings, so a later live run would then see missing cases. If `.recordings/` is explicitly selected inside the package, it is excluded from Git and Composer archives. The CLI holds an exclusive lock to prevent concurrent recorder runs in the same cache directory. A key consists of the endpoint path and canonical query parameters, without authentication.
+The byte budget limits received response bodies, not PHP memory. Capture buffers a complete body, and JSON/CSV verification builds every row in memory. Offline cache replay also loads and decodes the complete recording. Saving a capture to disk does not make verification stream its rows. Large datasets can require several times their body size in RAM and can exhaust `memory_limit` with an uncatchable fatal error. Use enough memory for the selected cases; see [Bulk responses and memory](../README.md#bulk-responses-and-memory). Neither `--include-large` nor `--max-bytes` changes this behavior, and the tool does not raise PHP's memory limit automatically.
+
+By default, recordings live below `sys_get_temp_dir()` in the user-specific directory `manhart-fmp-recordings-<uid>`. PHP configuration determines the temporary location; it is not guaranteed to be outside a served web root. For durable recordings, select a private persistent directory with `--cache-dir` and reuse it on later runs. Keep that directory outside every served web root. A `.cache` name, filesystem permissions or Git/archive exclusions do not prevent a web server running as the same user from serving its contents. Temporary-directory cleanup can remove recordings, so a later live run would then see missing cases.
+
+New cache directories are created with Unix mode `0700`. Existing directories are rejected if they allow any group/other access, or if their owner differs from the effective user when the POSIX extension is available. Existing permissions are not changed automatically. The directory itself must not be a symlink; symlinks in ancestor paths are allowed. On Windows, use private directory ACLs; Unix mode/owner checks do not apply there.
+
+Metadata, bodies, locks and reports reject symlinks (including dangling links) and special files. New body/JSON files use mode `0600`, exclusively created random temporary files and atomic replacement; predictable `.tmp` paths are never used. The CLI holds an exclusive lock to prevent concurrent recorder runs in the same cache directory. A cache key consists of the endpoint path and canonical query parameters, without authentication.
 
 A request attempt is marked before the HTTP call. Completed responses, provider errors and interrupted transfers are saved. Every later run consults the cache first. Interrupted or corrupt recordings require an explicit single-case refresh, avoiding accidental repeated requests. Parser changes replay the existing raw response instead of downloading it again.
 
@@ -60,4 +75,6 @@ A verified case checks one documented use of an endpoint, not every server-side 
 ## Capture case maintenance
 
 Curated Stable capture values are preserved when documentation is reimported, provided their parameter names are still documented. Newly required parameters receive generated defaults. Review capture values and independent request fixtures after contract changes.
+
+`resources/legacy-cases.json` contains one representative case for each of the 53 Legacy methods. Fundamentals cases use `AAPL`; the six annual bulk cases use `year=2023&period=annual`, while the two TTM bulks have no filters. All eight Legacy bulks are marked large. Adding a case does not fetch it: only a live invocation with that case selected can make a request. Existing captures are reused; use the same private `--cache-dir` for planning, capture and replay.
 

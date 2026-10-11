@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 // Import the official Markdown reference without making data API calls.
 if ($argc !== 2) {
     fwrite(STDERR, "Usage: php tools/import-docs.php /path/to/api-docs.md\n");
@@ -93,6 +96,15 @@ if (!$endpoints) {
 foreach ($endpoints as $endpoint => $contract) {
     $savedCapture = array_intersect_key($existing[$endpoint]['capture'] ?? [], $contract['parameters']);
     $endpoints[$endpoint]['capture'] = array_replace($contract['capture'], $savedCapture);
+    // Keep curated explanations only while their endpoint/parameter still exists.
+    if (isset($existing[$endpoint]['description'])) {
+        $endpoints[$endpoint]['description'] = $existing[$endpoint]['description'];
+    }
+    foreach ($contract['parameters'] as $name => $parameter) {
+        if (isset($existing[$endpoint]['parameters'][$name]['description'])) {
+            $endpoints[$endpoint]['parameters'][$name]['description'] = $existing[$endpoint]['parameters'][$name]['description'];
+        }
+    }
 }
 ksort($endpoints);
 $manifest = ['source' => 'https://site.financialmodelingprep.com/api-docs.md', 'capturedAt' => gmdate('Y-m-d'), 'sourceSha256' => hash('sha256', $source), 'endpoints' => $endpoints];

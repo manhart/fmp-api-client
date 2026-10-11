@@ -1,28 +1,24 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * Quote.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class Quote extends Response
+/** Latest Legacy quotes for one or several symbols. */
+class Quote extends AbstractResponse
 {
     protected static string $url = 'v3/quote';
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
         return $this->getResponseValueAsString('symbol');
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->getResponseValueAsString('name');
     }
@@ -77,7 +73,7 @@ class Quote extends Response
         return $this->getResponseValueAsFloat('priceAvg200');
     }
 
-    public function getExchange() : string
+    public function getExchange() : ?string
     {
         return $this->getResponseValueAsString('exchange');
     }

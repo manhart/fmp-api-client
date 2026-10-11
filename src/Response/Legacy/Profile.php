@@ -1,25 +1,21 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * Profile.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class Profile extends Response
+/** Company identity, listing details and market overview from the Legacy dataset. */
+class Profile extends AbstractResponse
 {
     protected static string $url = 'v3/profile';
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
-        return $this->getResponseValue('symbol');
+        return $this->getResponseValueAsString('symbol');
     }
 
     public function getPrice(): ?float
@@ -39,7 +35,7 @@ class Profile extends Response
 
     public function getRange(): ?string
     {
-        return $this->getResponseValue('range');
+        return $this->getResponseValueAsString('range');
     }
 
     public function getChanges(): ?float
@@ -47,54 +43,54 @@ class Profile extends Response
         return $this->getResponseValueAsFloat('changes');
     }
 
-    public function getCompanyName(): string
+    public function getCompanyName(): ?string
     {
-        return $this->getResponseValue('companyName');
+        return $this->getResponseValueAsString('companyName');
     }
 
     public function getWebsite(): ?string
     {
-        return $this->getResponseValue('website');
+        return $this->getResponseValueAsString('website');
     }
 
     public function getDescription(): ?string
     {
-        return $this->getResponseValue('description');
+        return $this->getResponseValueAsString('description');
     }
 
     public function getCountry(): ?string
     {
-        return $this->getResponseValue('country');
+        return $this->getResponseValueAsString('country');
     }
 
     public function getFullTimeEmployees(): ?string
     {
-        return $this->getResponseValue('fullTimeEmployees');
+        return $this->getResponseValueAsString('fullTimeEmployees');
     }
 
     public function getPhone(): ?string
     {
-        return $this->getResponseValue('phone');
+        return $this->getResponseValueAsString('phone');
     }
 
     public function getAddress(): ?string
     {
-        return $this->getResponseValue('address');
+        return $this->getResponseValueAsString('address');
     }
 
     public function getCity(): ?string
     {
-        return $this->getResponseValue('city');
+        return $this->getResponseValueAsString('city');
     }
 
     public function getZip(): ?string
     {
-        return $this->getResponseValue('zip');
+        return $this->getResponseValueAsString('zip');
     }
 
     public function getState(): ?string
     {
-        return $this->getResponseValue('state');
+        return $this->getResponseValueAsString('state');
     }
 
     public function getVolAvg(): ?int
@@ -104,22 +100,20 @@ class Profile extends Response
 
     public function getExchange(): ?string
     {
-        return $this->getResponseValue('exchange');
+        return $this->getResponseValueAsString('exchange');
     }
 
     public function getExchangeShortName(): ?string
     {
-        return $this->getResponseValue('exchangeShortName');
+        return $this->getResponseValueAsString('exchangeShortName');
     }
 
     public function getIndustry(): ?string
     {
-        return $this->getResponseValue('industry');
+        return $this->getResponseValueAsString('industry');
     }
 
-    /**
-     * @return int|null Central Index Key
-     */
+    /** SEC CIK as a number; leading zeroes are lost and missing/zero values yield null. */
     public function getCIKAsInt(): ?int
     {
         return $this->getResponseValueAsInt('cik') ?: null;
@@ -127,25 +121,23 @@ class Profile extends Response
 
     public function getCIK(): ?string
     {
-        return $this->getResponseValue('cik');
+        return $this->getResponseValueAsString('cik');
     }
 
     public function getISIN(): ?string
     {
-        return $this->getResponseValue('isin');
+        return $this->getResponseValueAsString('isin');
     }
 
-    /**
-     * @return string|null Committee on Uniform Securities Identification Procedures
-     */
+    /** Security identifier assigned under the CUSIP system. */
     public function getCUSIP(): ?string
     {
-        return $this->getResponseValue('cusip');
+        return $this->getResponseValueAsString('cusip');
     }
 
     public function getSector(): ?string
     {
-        return $this->getResponseValue('sector');
+        return $this->getResponseValueAsString('sector');
     }
 
     public function getMktCap(): ?int
@@ -155,12 +147,12 @@ class Profile extends Response
 
     public function getCurrency(): ?string
     {
-        return $this->getResponseValue('currency');
+        return $this->getResponseValueAsString('currency');
     }
 
     public function getCEO(): ?string
     {
-        return $this->getResponseValue('ceo');
+        return $this->getResponseValueAsString('ceo');
     }
 
     public function getDcfDiff(): ?float
@@ -175,12 +167,12 @@ class Profile extends Response
 
     public function getImage(): ?string
     {
-        return $this->getResponseValue('image');
+        return $this->getResponseValueAsString('image');
     }
 
     public function getDefaultImage(): bool
     {
-        return $this->getResponseValue('defaultImage');
+        return $this->getResponseValueAsBool('defaultImage');
     }
 
     public function getIpoDate(): ?\DateTimeInterface
@@ -210,7 +202,7 @@ class Profile extends Response
 
     public function ipoDate(): ?string
     {
-        return $this->getResponseValue('ipoDate');
+        return $this->getResponseValueAsString('ipoDate');
     }
 
     public function getType(): string

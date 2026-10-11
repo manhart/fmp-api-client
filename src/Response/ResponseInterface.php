@@ -1,16 +1,12 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023 Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * Response.php created on 27.09.23, 20:28.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response;
 
+/** Row access uses the current iterator position; key alternatives are checked in order. */
 interface ResponseInterface
 {
     public function __construct(array $response);

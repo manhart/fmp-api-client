@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Tests;
 
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -20,11 +23,12 @@ final class GenerationTest extends TestCase
         $manifest = ['endpoints' => [
             'profile' => [
                 'class' => 'Profile',
+                'description' => 'Company identity and listing details.',
                 'format' => 'json',
                 'fields' => ['symbol'],
                 'parameters' => [
                     'symbol' => ['phpType' => 'string', 'required' => true],
-                    'active' => ['phpType' => 'bool', 'required' => false],
+                    'active' => ['phpType' => 'bool', 'required' => false, 'description' => 'Restrict fixture records to active listings.'],
                 ],
             ],
             'stock-list' => ['class' => 'StockList', 'format' => 'json', 'fields' => [], 'parameters' => []],
@@ -71,8 +75,8 @@ final class GenerationTest extends TestCase
         $files = [
             $this->directory.'/src/Response/Stable/Profile.php',
             $this->directory.'/src/Response/Stable/StockList.php',
-            $this->directory.'/src/Response/Stable/StableEndpointRegistry.php',
-            $this->directory.'/src/Client/StableClientMethods.php',
+            $this->directory.'/src/Response/Stable/EndpointRegistry.php',
+            $this->directory.'/src/Client/ClientMethods.php',
         ];
         $hashes = [];
         foreach ($files as $file) {
@@ -88,7 +92,101 @@ final class GenerationTest extends TestCase
         $trait = file_get_contents($files[3]);
         $this->assertStringContainsString('bool|null $active = null', $trait);
         $this->assertStringContainsString('public function getStockList(): Stable\\StockList', $trait);
-        $this->assertStringContainsString('return Stable\\Profile::fetch($this,', $trait);
+        $this->assertStringContainsString("): Stable\\Profile {\n", $trait);
+        $this->assertStringContainsString("return Stable\\Profile::fetch(\n            \$this,\n", $trait);
+        $this->assertStringContainsString("public function getStockList(): Stable\\StockList\n    {\n        return Stable\\StockList::fetch(\$this);", $trait);
+        $profile = file_get_contents($files[0]);
+        foreach ([$profile, $trait] as $code) {
+            $this->assertStringContainsString('Company identity and listing details.', $code);
+            $this->assertStringContainsString('@param bool|null $active Restrict fixture records to active listings.', $code);
+            $this->assertStringNotContainsString('@return', $code);
+            $this->assertStringNotContainsString('@param string $symbol', $code);
+        }
+        $registry = file_get_contents($files[2]);
+        $this->assertStringContainsString('@return class-string<\\Manhart\\Fmp\\Response\\Response|\\Manhart\\Fmp\\Response\\FileResponse>', $registry);
+        $this->assertStringContainsString('@var array<string, class-string<', $registry);
+    }
+
+    public function testImportsFollowEndpointAndSelectedShortcutParameterTypes(): void
+    {
+        $manifest = json_decode(file_get_contents($this->directory.'/resources/endpoints.json'), true, 512, JSON_THROW_ON_ERROR);
+        $manifest['endpoints']['statements'] = [
+            'class' => 'Statements',
+            'format' => 'json',
+            'fields' => [],
+            'parameters' => [
+                'period' => ['phpType' => 'string|Period|ReportPeriod', 'required' => false],
+                'from' => ['phpType' => 'string|DateTimeInterface', 'required' => false],
+                'to' => ['phpType' => 'string|DateTimeInterface', 'required' => false],
+            ],
+        ];
+        $manifest['endpoints']['indicator'] = [
+            'class' => 'Indicator',
+            'format' => 'json',
+            'fields' => [],
+            'parameters' => [
+                'timeframe' => ['phpType' => 'string|Timeframe', 'required' => true],
+                'sort' => ['phpType' => 'string|SortDirection', 'required' => false],
+            ],
+        ];
+        $manifest['endpoints']['workbook'] = [
+            'class' => 'Workbook',
+            'format' => 'xlsx',
+            'fields' => [],
+            'parameters' => [],
+        ];
+        file_put_contents($this->directory.'/resources/endpoints.json', json_encode($manifest, JSON_THROW_ON_ERROR));
+        file_put_contents($this->directory.'/resources/client-shortcuts.json', '{"getStatements":"statements"}');
+
+        [$status, $output] = $this->runPhp([$this->directory.'/tools/generate.php']);
+        $this->assertSame(0, $status, $output);
+        foreach (['Profile', 'StockList'] as $class) {
+            $code = file_get_contents($this->directory."/src/Response/Stable/$class.php");
+            $this->assertSame([
+                'Manhart\\Fmp\\Client\\FmpApiClient',
+                'Manhart\\Fmp\\Response\\Response',
+            ], $this->imports($code));
+        }
+        $statements = file_get_contents($this->directory.'/src/Response/Stable/Statements.php');
+        $this->assertEqualsCanonicalizing([
+            'Manhart\\Fmp\\Client\\FmpApiClient',
+            'Manhart\\Fmp\\Response\\Response',
+            'DateTimeInterface',
+            'Manhart\\Fmp\\Enum\\Period',
+            'Manhart\\Fmp\\Enum\\ReportPeriod',
+        ], $this->imports($statements));
+        $indicator = file_get_contents($this->directory.'/src/Response/Stable/Indicator.php');
+        $this->assertEqualsCanonicalizing([
+            'Manhart\\Fmp\\Client\\FmpApiClient',
+            'Manhart\\Fmp\\Response\\Response',
+            'Manhart\\Fmp\\Enum\\SortDirection',
+            'Manhart\\Fmp\\Enum\\Timeframe',
+        ], $this->imports($indicator));
+        $workbook = file_get_contents($this->directory.'/src/Response/Stable/Workbook.php');
+        $this->assertStringContainsString('@throws \\JsonException', $workbook);
+        $this->assertStringContainsString('@throws \\JsonException', $statements);
+        $this->assertSame([
+            'Manhart\\Fmp\\Client\\FmpApiClient',
+            'Manhart\\Fmp\\Response\\FileResponse',
+        ], $this->imports($workbook));
+        $trait = file_get_contents($this->directory.'/src/Client/ClientMethods.php');
+        $this->assertStringContainsString('@throws \\JsonException', $trait);
+        $this->assertEqualsCanonicalizing([
+            'Manhart\\Fmp\\Response\\Stable',
+            'DateTimeInterface',
+            'Manhart\\Fmp\\Enum\\Period',
+            'Manhart\\Fmp\\Enum\\ReportPeriod',
+        ], $this->imports($trait));
+        foreach (['Statements', 'Indicator', 'Workbook'] as $class) {
+            [$status, $output] = $this->runPhp(['-l', $this->directory."/src/Response/Stable/$class.php"]);
+            $this->assertSame(0, $status, $output);
+        }
+    }
+
+    private function imports(string $code): array
+    {
+        preg_match_all('/^use ([^;]+);$/m', $code, $matches);
+        return $matches[1];
     }
 
     public static function invalidShortcuts(): iterable
@@ -107,6 +205,6 @@ final class GenerationTest extends TestCase
         $this->assertNotSame(0, $status);
         $this->assertStringContainsString($expectedError, $output);
         $this->assertSame([], glob($this->directory.'/src/Response/Stable/*.php'));
-        $this->assertFileDoesNotExist($this->directory.'/src/Client/StableClientMethods.php');
+        $this->assertFileDoesNotExist($this->directory.'/src/Client/ClientMethods.php');
     }
 }

@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Recording;
 
 use Manhart\Fmp\Client\AbstractApiClient;
@@ -8,12 +11,19 @@ use Manhart\Fmp\Exception\CurlException;
 use Manhart\Fmp\HttpResponse;
 use Manhart\Fmp\Response\FileResponse;
 
+/** Capture each request once and validate by replay, with per-instance transfer/rate budgets. */
 final class Recorder
 {
     private int $calls = 0;
     private int $receivedBytes = 0;
     private float $lastRequestAt = 0.0;
 
+    /**
+     * @param \Closure(int):AbstractApiClient $clientFactory Receives remaining body bytes;
+     *     construct a client with that transfer limit.
+     * @param int $maxBytes Aggregate received body budget for this recorder instance.
+     * @param int $requestsPerMinute Spaces requests evenly; cache reads consume no calls.
+     */
     public function __construct(
         private readonly CaptureCache $cache,
         private readonly \Closure $clientFactory,
@@ -25,6 +35,18 @@ final class Recorder
         }
     }
 
+    /**
+     * Reuse a capture or make one transfer, then classify it through the normal response factory.
+     * Incomplete attempts require an explicit refresh; successful verification covers this case only.
+     *
+     * @param string $id Stable endpoint path or legacy:methodName.
+     * @param array $case Capture arguments, optional parameter types and expected example fields.
+     * @param bool $refresh Replace an existing capture; may spend another API call.
+     * @param bool $offline Read captures only; a missing capture is reported without a transfer.
+     * @return array{id: string, outcome: string, cached: bool, receivedBytes?: int,
+     *     httpStatus?: int, error?: string} Status report; provider/parse failures are classified.
+     * @throws \JsonException If planning or capture metadata processing fails outside validation.
+     */
     public function capture(string $id, array $case, bool $refresh = false, bool $offline = false): array
     {
         $legacy = str_starts_with($id, 'legacy:');
@@ -109,6 +131,7 @@ final class Recorder
         }
     }
 
+    /** @return array{calls: int, receivedBytes: int, maxBytes: int} Live-transfer totals; replay adds none. */
     public function statistics(): array
     {
         return ['calls' => $this->calls, 'receivedBytes' => $this->receivedBytes, 'maxBytes' => $this->maxBytes];

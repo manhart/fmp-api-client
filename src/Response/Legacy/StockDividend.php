@@ -1,24 +1,23 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * StockDividend.php created on 10.03.26, 23:23.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class StockDividend extends Response
+/** Dividend rows extracted from the Legacy historical wrapper; the symbol is kept separately. */
+class StockDividend extends AbstractResponse
 {
     protected static string $url = 'v3/historical-price-full/stock_dividend';
 
     private string $symbol;
 
+    /**
+     * @param array $response Original object with symbol and historical keys, not a normalized row list.
+     */
     public function __construct(array $response)
     {
         $this->symbol = $response['symbol'] ?? '';
@@ -35,9 +34,9 @@ class StockDividend extends Response
         return $this->getResponseValueAsDate('date');
     }
 
-    public function getLabel(): string
+    public function getLabel(): ?string
     {
-        return $this->getResponseValue('label');
+        return $this->getResponseValueAsString('label');
     }
 
     public function getAdjDividend(): float

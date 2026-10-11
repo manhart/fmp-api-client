@@ -1,19 +1,15 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * PriceTarget.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class PriceTarget extends Response
+/** Individual analyst price targets from the Legacy dataset. */
+class PriceTarget extends AbstractResponse
 {
     protected static string $url = 'v4/price-target';
 
@@ -24,17 +20,17 @@ class PriceTarget extends Response
 
     public function getNewsURL(): ?string
     {
-        return $this->getResponseValue('newsURL');
+        return $this->getResponseValueAsString('newsURL');
     }
 
-    public function getNewsTitle(): string
+    public function getNewsTitle(): ?string
     {
         return $this->getResponseValueAsString('newsTitle');
     }
 
     public function getAnalystName(): ?string
     {
-        return $this->getResponseValue('analystName');
+        return $this->getResponseValueAsString('analystName');
     }
 
     public function getPriceTarget(): float
@@ -54,16 +50,16 @@ class PriceTarget extends Response
 
     public function getNewsPublisher(): ?string
     {
-        return $this->getResponseValue('newsPublisher');
+        return $this->getResponseValueAsString('newsPublisher');
     }
 
     public function getNewsBaseURL(): ?string
     {
-        return $this->getResponseValue('newsBaseURL');
+        return $this->getResponseValueAsString('newsBaseURL');
     }
 
     public function getAnalystCompany(): ?string
     {
-        return $this->getResponseValue('analystCompany');
+        return $this->getResponseValueAsString('analystCompany');
     }
 }

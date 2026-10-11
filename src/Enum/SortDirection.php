@@ -1,16 +1,12 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023 Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * SortDirection.php created on 28.02.26, 19:05.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Enum;
 
+/** Provider sorting values; string arguments remain available where an endpoint accepts them. */
 enum SortDirection: string
 {
     case Asc = 'asc';

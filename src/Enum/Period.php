@@ -1,16 +1,12 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023 Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * Period.php created on 28.02.26, 18:06.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Enum;
 
+/** Convenience reporting frequencies; this differs from the FY/Q1-Q4 labels in ReportPeriod. */
 enum Period: string
 {
     case Annual = 'annual';

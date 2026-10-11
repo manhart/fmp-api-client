@@ -1,25 +1,21 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * CompanyCoreInformation.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class CompanyCoreInformation extends Response
+/** Legacy company-identity summary, separate from a Stable profile response. */
+class CompanyCoreInformation extends AbstractResponse
 {
     protected static string $url = 'v4/company-core-information';
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
-        return $this->getResponseValue('symbol');
+        return $this->getResponseValueAsString('symbol');
     }
 
     public function getCIKAsInt(): ?int
@@ -29,10 +25,10 @@ class CompanyCoreInformation extends Response
 
     public function getCIK(): ?string
     {
-        return $this->getResponseValue('cik') ?: null;
+        return $this->getResponseValueAsString('cik') ?: null;
     }
 
-    public function getExchange(): string
+    public function getExchange(): ?string
     {
         return $this->getResponseValueAsString('exchange');
     }
@@ -44,46 +40,46 @@ class CompanyCoreInformation extends Response
 
     public function getSICGroup(): ?string
     {
-        return $this->getResponseValue('sicGroup');
+        return $this->getResponseValueAsString('sicGroup');
     }
 
     public function getSICDescription(): ?string
     {
-        return $this->getResponseValue('sicDescription');
+        return $this->getResponseValueAsString('sicDescription');
     }
 
     public function getStateLocation(): ?string
     {
-        return $this->getResponseValue('stateLocation');
+        return $this->getResponseValueAsString('stateLocation');
     }
 
     public function getStateOfIncorporation(): ?string
     {
-        return $this->getResponseValue('stateOfIncorporation');
+        return $this->getResponseValueAsString('stateOfIncorporation');
     }
 
     public function getFiscalYearEnd(): ?string
     {
-        return $this->getResponseValue('fiscalYearEnd');
+        return $this->getResponseValueAsString('fiscalYearEnd');
     }
 
     public function getBusinessAddress(): ?string
     {
-        return $this->getResponseValue('businessAddress');
+        return $this->getResponseValueAsString('businessAddress');
     }
 
     public function getMailingAddress(): ?string
     {
-        return $this->getResponseValue('mailingAddress');
+        return $this->getResponseValueAsString('mailingAddress');
     }
 
     public function getTaxIdentificationNumber(): ?string
     {
-        return $this->getResponseValue('taxIdentificationNumber');
+        return $this->getResponseValueAsString('taxIdentificationNumber');
     }
 
     public function getRegistrantName(): ?string
     {
-        return $this->getResponseValue('registrantName');
+        return $this->getResponseValueAsString('registrantName');
     }
 }

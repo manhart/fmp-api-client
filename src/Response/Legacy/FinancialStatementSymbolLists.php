@@ -1,19 +1,15 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * FinancialStatementSymbolLists.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class FinancialStatementSymbolLists extends Response
+/** Symbols with financial statements available from the Legacy dataset. */
+class FinancialStatementSymbolLists extends AbstractResponse
 {
     protected static string $url = 'v3/financial-statement-symbol-lists';
 
@@ -28,7 +24,7 @@ class FinancialStatementSymbolLists extends Response
         parent::__construct($symbolAssocArray);
     }
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
         return $this->getResponseValueAsString('symbol');
     }

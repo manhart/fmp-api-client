@@ -420,5 +420,237 @@
             "exchange": "?string"
         },
         "large": false
+    },
+    "getKeyMetrics": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\KeyMetrics",
+        "endpoint": "v3/key-metrics",
+        "parameters": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "limit": 1
+        },
+        "types": {
+            "symbol": "string",
+            "period": "?string",
+            "limit": "?int"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": false
+    },
+    "getKeyMetricsTTM": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\KeyMetricsTTM",
+        "endpoint": "v3/key-metrics-ttm",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": false
+    },
+    "getRatios": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\Ratios",
+        "endpoint": "v3/ratios",
+        "parameters": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "limit": 1
+        },
+        "types": {
+            "symbol": "string",
+            "period": "?string",
+            "limit": "?int"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": false
+    },
+    "getRatiosTTM": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\RatiosTTM",
+        "endpoint": "v3/ratios-ttm",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": false
+    },
+    "getFinancialGrowth": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\FinancialGrowth",
+        "endpoint": "v3/financial-growth",
+        "parameters": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "limit": 1
+        },
+        "types": {
+            "symbol": "string",
+            "period": "?string",
+            "limit": "?int"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": false
+    },
+    "getAnalystEstimates": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\AnalystEstimates",
+        "endpoint": "v3/analyst-estimates",
+        "parameters": {
+            "symbol": "AAPL",
+            "period": "annual",
+            "limit": 1
+        },
+        "types": {
+            "symbol": "string",
+            "period": "?string",
+            "limit": "?int"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": false
+    },
+    "getCompanyOutlook": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CompanyOutlook",
+        "endpoint": "v4/company-outlook",
+        "parameters": {
+            "symbol": "AAPL"
+        },
+        "types": {
+            "symbol": "string"
+        },
+        "fields": [
+            "profile",
+            "metrics",
+            "ratios"
+        ],
+        "large": false
+    },
+    "getIncomeStatementBulk": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\IncomeStatementBulk",
+        "endpoint": "v4/income-statement-bulk",
+        "parameters": {
+            "year": 2023,
+            "period": "annual"
+        },
+        "types": {
+            "year": "int",
+            "period": "string"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": true
+    },
+    "getBalanceSheetStatementBulk": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\BalanceSheetStatementBulk",
+        "endpoint": "v4/balance-sheet-statement-bulk",
+        "parameters": {
+            "year": 2023,
+            "period": "annual"
+        },
+        "types": {
+            "year": "int",
+            "period": "string"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": true
+    },
+    "getCashflowStatementBulk": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\CashflowStatementBulk",
+        "endpoint": "v4/cash-flow-statement-bulk",
+        "parameters": {
+            "year": 2023,
+            "period": "annual"
+        },
+        "types": {
+            "year": "int",
+            "period": "string"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": true
+    },
+    "getKeyMetricsBulk": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\KeyMetricsBulk",
+        "endpoint": "v4/key-metrics-bulk",
+        "parameters": {
+            "year": 2023,
+            "period": "annual"
+        },
+        "types": {
+            "year": "int",
+            "period": "string"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": true
+    },
+    "getRatiosBulk": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\RatiosBulk",
+        "endpoint": "v4/ratios-bulk",
+        "parameters": {
+            "year": 2023,
+            "period": "annual"
+        },
+        "types": {
+            "year": "int",
+            "period": "string"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": true
+    },
+    "getFinancialGrowthBulk": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\FinancialGrowthBulk",
+        "endpoint": "v4/financial-growth-bulk",
+        "parameters": {
+            "year": 2023,
+            "period": "annual"
+        },
+        "types": {
+            "year": "int",
+            "period": "string"
+        },
+        "fields": [
+            "symbol"
+        ],
+        "large": true
+    },
+    "getKeyMetricsTTMBulk": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\KeyMetricsTTMBulk",
+        "endpoint": "v4/key-metrics-ttm-bulk",
+        "parameters": [],
+        "types": [],
+        "fields": [
+            "symbol"
+        ],
+        "large": true
+    },
+    "getRatiosTTMBulk": {
+        "class": "Manhart\\Fmp\\Response\\Legacy\\RatiosTTMBulk",
+        "endpoint": "v4/ratios-ttm-bulk",
+        "parameters": [],
+        "types": [],
+        "fields": [
+            "symbol"
+        ],
+        "large": true
     }
 }

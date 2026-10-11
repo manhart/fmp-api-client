@@ -1,28 +1,24 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * StockScreener.php created on 10.03.26, 23:23.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class StockScreener extends Response
+/** Company records selected by named Legacy screener filters. */
+class StockScreener extends AbstractResponse
 {
     protected static string $url = 'v3/stock-screener';
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
-        return $this->getResponseValue('symbol');
+        return $this->getResponseValueAsString('symbol');
     }
 
-    public function getCompanyName(): string
+    public function getCompanyName(): ?string
     {
         return $this->getResponseValueAsString('companyName');
     }
@@ -32,12 +28,12 @@ class StockScreener extends Response
         return $this->getResponseValueAsInt('marketCap');
     }
 
-    public function getSector(): string
+    public function getSector(): ?string
     {
         return $this->getResponseValueAsString('sector');
     }
 
-    public function getIndustry(): string
+    public function getIndustry(): ?string
     {
         return $this->getResponseValueAsString('industry');
     }
@@ -62,17 +58,17 @@ class StockScreener extends Response
         return $this->getResponseValueAsInt('volume');
     }
 
-    public function getExchange(): string
+    public function getExchange(): ?string
     {
         return $this->getResponseValueAsString('exchange');
     }
 
-    public function getExchangeShortName(): string
+    public function getExchangeShortName(): ?string
     {
         return $this->getResponseValueAsString('exchangeShortName');
     }
 
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->getResponseValueAsString('country');
     }

@@ -1,16 +1,12 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023 Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * Timeframe.php created on 28.02.26, 19:05.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Enum;
 
+/** Convenience price-bar intervals; each endpoint may support only a subset or additional strings. */
 enum Timeframe: string
 {
     case OneMinute = '1min';

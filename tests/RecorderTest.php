@@ -1,12 +1,16 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Tests;
 
 use Manhart\Fmp\Recording\CaptureCache;
 use Manhart\Fmp\Recording\Recorder;
 use Manhart\Fmp\HttpResponse;
 use Manhart\Fmp\Tests\Support\FixtureClient;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class RecorderTest extends TestCase
@@ -53,6 +57,58 @@ final class RecorderTest extends TestCase
         $recorder = new Recorder($this->cache, static fn(int $remaining) => throw new \LogicException('Must use the existing legacy capture.'));
         $case = ['parameters' => ['symbol' => 'AAPL'], 'types' => ['symbol' => 'string']];
         $result = $recorder->capture('legacy:getProfile', $case, offline: true);
+        $this->assertSame('verified', $result['outcome']);
+        $this->assertTrue($result['cached']);
+        $this->assertSame(0, $recorder->statistics()['calls']);
+        $this->assertSame(0, $recorder->statistics()['receivedBytes']);
+    }
+
+    public static function legacyBulkCases(): iterable
+    {
+        yield 'income' => ['getIncomeStatementBulk', 'v4/income-statement-bulk?year=2023&period=annual'];
+        yield 'balance sheet' => ['getBalanceSheetStatementBulk', 'v4/balance-sheet-statement-bulk?year=2023&period=annual'];
+        yield 'cash flow' => ['getCashflowStatementBulk', 'v4/cash-flow-statement-bulk?year=2023&period=annual'];
+        yield 'metrics' => ['getKeyMetricsBulk', 'v4/key-metrics-bulk?year=2023&period=annual'];
+        yield 'ratios' => ['getRatiosBulk', 'v4/ratios-bulk?year=2023&period=annual'];
+        yield 'growth' => ['getFinancialGrowthBulk', 'v4/financial-growth-bulk?year=2023&period=annual'];
+        yield 'metrics TTM' => ['getKeyMetricsTTMBulk', 'v4/key-metrics-ttm-bulk'];
+        yield 'ratios TTM' => ['getRatiosTTMBulk', 'v4/ratios-ttm-bulk'];
+    }
+
+    /** @throws \JsonException If the capture manifest or cache metadata cannot be decoded. */
+    #[DataProvider('legacyBulkCases')]
+    public function testLegacyBulkCsvReplaysOfflineAndIsMarkedLarge(string $method, string $route): void
+    {
+        $cases = json_decode(file_get_contents(__DIR__.'/../resources/legacy-cases.json'), true, 512, JSON_THROW_ON_ERROR);
+        $case = $cases[$method];
+        $this->assertTrue($case['large']);
+
+        $url = 'https://financialmodelingprep.com/api/'.$route;
+        $body = "symbol,date,value\nAAPL,2023-09-30,0\nMSFT,2023-06-30,1.2\n";
+        $key = CaptureCache::key($url);
+        $this->cache->begin($key, 'legacy:'.$method, $url);
+        $this->cache->save($key, new HttpResponse($body, 200, 'text/csv', strlen($body)), 'recorded');
+
+        $recorder = new Recorder($this->cache, static fn(int $remaining) => throw new \LogicException('Bulk replay must not download again.'));
+        $result = $recorder->capture('legacy:'.$method, $case, offline: true);
+        $this->assertSame('verified', $result['outcome']);
+        $this->assertTrue($result['cached']);
+        $this->assertSame(0, $recorder->statistics()['calls']);
+        $this->assertSame(0, $recorder->statistics()['receivedBytes']);
+    }
+
+    /** @throws \JsonException If the capture manifest or cache metadata cannot be decoded. */
+    public function testNestedCompanyOutlookReplaysAsOneRecord(): void
+    {
+        $cases = json_decode(file_get_contents(__DIR__.'/../resources/legacy-cases.json'), true, 512, JSON_THROW_ON_ERROR);
+        $url = 'https://financialmodelingprep.com/api/v4/company-outlook?symbol=AAPL';
+        $body = '{"profile":{"symbol":"AAPL"},"metrics":{"peRatio":0},"ratios":[]}';
+        $key = CaptureCache::key($url);
+        $this->cache->begin($key, 'legacy:getCompanyOutlook', $url);
+        $this->cache->save($key, new HttpResponse($body, 200, 'application/json', strlen($body)), 'recorded');
+
+        $recorder = new Recorder($this->cache, static fn(int $remaining) => throw new \LogicException('Outlook replay must stay offline.'));
+        $result = $recorder->capture('legacy:getCompanyOutlook', $cases['getCompanyOutlook'], offline: true);
         $this->assertSame('verified', $result['outcome']);
         $this->assertTrue($result['cached']);
         $this->assertSame(0, $recorder->statistics()['calls']);

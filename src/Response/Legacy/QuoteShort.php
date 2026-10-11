@@ -1,23 +1,19 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * QuoteShort.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class QuoteShort extends Response
+/** Latest Legacy price and volume with a reduced field set. */
+class QuoteShort extends AbstractResponse
 {
     protected static string $url = 'v3/quote-short';
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
         return $this->getResponseValueAsString('symbol');
     }

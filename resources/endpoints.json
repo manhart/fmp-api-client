@@ -41,7 +41,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "SEC disclosures of changes in beneficial ownership."
         },
         "actively-trading-list": {
             "class": "ActivelyTradingList",
@@ -52,7 +53,8 @@
                 "symbol",
                 "name"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Symbols currently marked as actively trading by FMP."
         },
         "aftermarket-quote": {
             "class": "AftermarketQuote",
@@ -77,7 +79,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Bid/ask quotes from extended trading hours."
         },
         "aftermarket-trade": {
             "class": "AftermarketTrade",
@@ -99,7 +102,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Trades reported during extended trading hours."
         },
         "all-exchange-market-hours": {
             "class": "AllExchangeMarketHours",
@@ -121,7 +125,8 @@
                 "timezone",
                 "isMarketOpen"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Trading-session hours and open/closed status across supported exchanges."
         },
         "all-industry-classification": {
             "class": "AllIndustryClassification",
@@ -153,7 +158,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Company classifications using Standard Industrial Classification (SIC) codes."
         },
         "analyst-estimates": {
             "class": "AnalystEstimates",
@@ -170,7 +176,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "annual"
+                    "example": "annual",
+                    "description": "Reporting frequency: annual or quarter."
                 },
                 "page": {
                     "type": "number",
@@ -214,7 +221,8 @@
                 "period": "annual",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Analysts' forecasts for earnings and financial statement items."
         },
         "available-countries": {
             "class": "AvailableCountries",
@@ -224,7 +232,8 @@
             "fields": [
                 "country"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Country identifiers supported by the provider's company datasets."
         },
         "available-exchanges": {
             "class": "AvailableExchanges",
@@ -246,7 +255,8 @@
                 "symbolSuffix",
                 "delay"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Exchange identifiers used by the provider's listings and filters."
         },
         "available-industries": {
             "class": "AvailableIndustries",
@@ -256,7 +266,8 @@
             "fields": [
                 "industry"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Industry labels supported by the provider's company datasets."
         },
         "available-sectors": {
             "class": "AvailableSectors",
@@ -266,7 +277,8 @@
             "fields": [
                 "sector"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Sector labels supported by the provider's company datasets."
         },
         "balance-sheet-statement": {
             "class": "BalanceSheetStatement",
@@ -289,7 +301,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -358,7 +371,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company balance sheet items for the requested reporting frequency."
         },
         "balance-sheet-statement-as-reported": {
             "class": "BalanceSheetStatementAsReported",
@@ -381,7 +395,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "annual"
+                    "example": "annual",
+                    "description": "Reporting frequency: annual or quarter."
                 }
             },
             "fields": [
@@ -395,7 +410,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company balance sheet items in the provider's as-reported format."
         },
         "balance-sheet-statement-bulk": {
             "class": "BalanceSheetStatementBulk",
@@ -412,7 +428,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -481,7 +498,8 @@
             "capture": {
                 "year": "2026",
                 "period": "Q1"
-            }
+            },
+            "description": "Bulk balance sheet statement records; request remaining partitions or dates explicitly when applicable."
         },
         "balance-sheet-statement-growth": {
             "class": "BalanceSheetStatementGrowth",
@@ -504,7 +522,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -568,7 +587,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Changes in company balance sheet items between reporting periods."
         },
         "balance-sheet-statement-growth-bulk": {
             "class": "BalanceSheetStatementGrowthBulk",
@@ -585,7 +605,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -649,7 +670,8 @@
             "capture": {
                 "year": "2026",
                 "period": "Q1"
-            }
+            },
+            "description": "Bulk balance sheet statement growth records; request remaining partitions or dates explicitly when applicable."
         },
         "balance-sheet-statement-ttm": {
             "class": "BalanceSheetStatementTTM",
@@ -734,7 +756,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company balance sheet data for the trailing twelve-month period."
         },
         "batch-aftermarket-quote": {
             "class": "BatchAftermarketQuote",
@@ -759,7 +782,8 @@
             ],
             "capture": {
                 "symbols": "AAPL"
-            }
+            },
+            "description": "One-request batch of extended-hours bid/ask quotes."
         },
         "batch-aftermarket-trade": {
             "class": "BatchAftermarketTrade",
@@ -781,7 +805,8 @@
             ],
             "capture": {
                 "symbols": "AAPL"
-            }
+            },
+            "description": "One-request batch of extended-hours trades."
         },
         "batch-commodity-quotes": {
             "class": "BatchCommodityQuotes",
@@ -801,7 +826,8 @@
                 "change",
                 "volume"
             ],
-            "capture": []
+            "capture": [],
+            "description": "One-request batch of commodity quotes."
         },
         "batch-crypto-quotes": {
             "class": "BatchCryptoQuotes",
@@ -821,7 +847,8 @@
                 "change",
                 "volume"
             ],
-            "capture": []
+            "capture": [],
+            "description": "One-request batch of cryptocurrency quotes."
         },
         "batch-etf-quotes": {
             "class": "BatchEtfQuotes",
@@ -841,7 +868,8 @@
                 "change",
                 "volume"
             ],
-            "capture": []
+            "capture": [],
+            "description": "One-request batch of ETF quotes."
         },
         "batch-exchange-quote": {
             "class": "BatchExchangeQuote",
@@ -869,7 +897,8 @@
             ],
             "capture": {
                 "exchange": "NASDAQ"
-            }
+            },
+            "description": "One-request batch of quotes for one exchange."
         },
         "batch-forex-quotes": {
             "class": "BatchForexQuotes",
@@ -889,7 +918,8 @@
                 "change",
                 "volume"
             ],
-            "capture": []
+            "capture": [],
+            "description": "One-request batch of currency-pair quotes."
         },
         "batch-index-quotes": {
             "class": "BatchIndexQuotes",
@@ -909,7 +939,8 @@
                 "change",
                 "volume"
             ],
-            "capture": []
+            "capture": [],
+            "description": "One-request batch of market-index quotes."
         },
         "batch-mutualfund-quotes": {
             "class": "BatchMutualfundQuotes",
@@ -929,7 +960,8 @@
                 "change",
                 "volume"
             ],
-            "capture": []
+            "capture": [],
+            "description": "One-request batch of mutual-fund quotes."
         },
         "batch-quote": {
             "class": "BatchQuote",
@@ -964,7 +996,8 @@
             ],
             "capture": {
                 "symbols": "AAPL"
-            }
+            },
+            "description": "One-request batch of quotes for the requested symbols."
         },
         "batch-quote-short": {
             "class": "BatchQuoteShort",
@@ -986,7 +1019,8 @@
             ],
             "capture": {
                 "symbols": "AAPL"
-            }
+            },
+            "description": "One-request batch of reduced quotes for the requested symbols."
         },
         "biggest-gainers": {
             "class": "BiggestGainers",
@@ -1001,7 +1035,8 @@
                 "changesPercentage",
                 "exchange"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Symbols with the largest reported price gains in the current market snapshot."
         },
         "biggest-losers": {
             "class": "BiggestLosers",
@@ -1016,7 +1051,8 @@
                 "changesPercentage",
                 "exchange"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Symbols with the largest reported price losses in the current market snapshot."
         },
         "cash-flow-statement": {
             "class": "CashFlowStatement",
@@ -1039,7 +1075,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -1094,7 +1131,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company cash-flow statement items for the requested reporting frequency."
         },
         "cash-flow-statement-as-reported": {
             "class": "CashFlowStatementAsReported",
@@ -1117,7 +1155,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "annual"
+                    "example": "annual",
+                    "description": "Reporting frequency: annual or quarter."
                 }
             },
             "fields": [
@@ -1131,7 +1170,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company cash-flow statement items in the provider's as-reported format."
         },
         "cash-flow-statement-bulk": {
             "class": "CashFlowStatementBulk",
@@ -1148,7 +1188,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -1203,7 +1244,8 @@
             "capture": {
                 "year": "2026",
                 "period": "Q1"
-            }
+            },
+            "description": "Bulk cash flow statement records; request remaining partitions or dates explicitly when applicable."
         },
         "cash-flow-statement-growth": {
             "class": "CashFlowStatementGrowth",
@@ -1226,7 +1268,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -1276,7 +1319,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Changes in company cash-flow statement items between reporting periods."
         },
         "cash-flow-statement-growth-bulk": {
             "class": "CashFlowStatementGrowthBulk",
@@ -1293,7 +1337,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -1343,7 +1388,8 @@
             "capture": {
                 "year": "2026",
                 "period": "Q1"
-            }
+            },
+            "description": "Bulk cash flow statement growth records; request remaining partitions or dates explicitly when applicable."
         },
         "cash-flow-statement-ttm": {
             "class": "CashFlowStatementTTM",
@@ -1415,7 +1461,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company cash-flow statement data for the trailing twelve-month period."
         },
         "cik-list": {
             "class": "CIKList",
@@ -1442,7 +1489,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "SEC registrants and their Central Index Key (CIK) identifiers."
         },
         "commitment-of-traders-analysis": {
             "class": "CommitmentOfTradersAnalysis",
@@ -1489,7 +1537,8 @@
             "capture": {
                 "from": "2024-01-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Provider analysis of participant positioning in futures contracts."
         },
         "commitment-of-traders-list": {
             "class": "CommitmentOfTradersList",
@@ -1500,7 +1549,8 @@
                 "symbol",
                 "name"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Futures contracts with Commitment of Traders data available."
         },
         "commitment-of-traders-report": {
             "class": "CommitmentOfTradersReport",
@@ -1659,7 +1709,8 @@
             "capture": {
                 "from": "2024-01-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Reported futures positioning by participant category."
         },
         "commodities-list": {
             "class": "CommoditiesList",
@@ -1673,7 +1724,8 @@
                 "tradeMonth",
                 "currency"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Commodity symbols available from the provider."
         },
         "company-notes": {
             "class": "CompanyNotes",
@@ -1695,7 +1747,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Debt/security notes associated with a company."
         },
         "company-screener": {
             "class": "CompanyScreener",
@@ -1855,7 +1908,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Companies selected by provider-side market and classification filters."
         },
         "crowdfunding-offerings": {
             "class": "CrowdfundingOfferings",
@@ -1921,7 +1975,8 @@
             ],
             "capture": {
                 "cik": "0001916078"
-            }
+            },
+            "description": "Company crowdfunding offerings."
         },
         "crowdfunding-offerings-latest": {
             "class": "CrowdfundingOfferingsLatest",
@@ -1994,7 +2049,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Recently published crowdfunding offerings."
         },
         "crowdfunding-offerings-search": {
             "class": "CrowdfundingOfferingsSearch",
@@ -2015,7 +2071,8 @@
             ],
             "capture": {
                 "name": "enotap"
-            }
+            },
+            "description": "Company-filtered crowdfunding offerings."
         },
         "cryptocurrency-list": {
             "class": "CryptocurrencyList",
@@ -2030,7 +2087,8 @@
                 "circulatingSupply",
                 "totalSupply"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Cryptocurrency symbols and market identifiers available from the provider."
         },
         "custom-discounted-cash-flow": {
             "class": "CustomDiscountedCashFlow",
@@ -2203,7 +2261,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Discounted cash-flow valuation using supplied model assumptions in FMP's units."
         },
         "custom-levered-discounted-cash-flow": {
             "class": "CustomLeveredDiscountedCashFlow",
@@ -2363,7 +2422,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Levered discounted cash-flow valuation using supplied model assumptions."
         },
         "dcf-bulk": {
             "class": "DCFBulk",
@@ -2376,7 +2436,8 @@
                 "dcf",
                 "Stock Price"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Bulk discounted cash-flow valuation records; request remaining partitions or dates explicitly when applicable."
         },
         "delisted-companies": {
             "class": "DelistedCompanies",
@@ -2406,7 +2467,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Companies reported as delisted, including their delisting dates."
         },
         "discounted-cash-flow": {
             "class": "DiscountedCashFlow",
@@ -2428,7 +2490,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "The provider's discounted cash-flow valuation for a company."
         },
         "dividends": {
             "class": "Dividends",
@@ -2462,7 +2525,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Historical dividend events for one symbol; payment and declaration dates may differ."
         },
         "dividends-calendar": {
             "class": "DividendsCalendar",
@@ -2503,7 +2567,8 @@
                 "from": "2026-03-06",
                 "to": "2026-06-06",
                 "page": 0
-            }
+            },
+            "description": "Dividend events across symbols for the requested calendar window."
         },
         "dowjones-constituent": {
             "class": "DowjonesConstituent",
@@ -2520,7 +2585,8 @@
                 "cik",
                 "founded"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Current constituent companies of the Dow Jones index."
         },
         "earning-call-transcript": {
             "class": "EarningCallTranscript",
@@ -2564,7 +2630,8 @@
                 "year": "2020",
                 "quarter": "3",
                 "limit": 1
-            }
+            },
+            "description": "One earnings-call transcript selected by symbol, reporting year and quarter."
         },
         "earning-call-transcript-dates": {
             "class": "EarningCallTranscriptDates",
@@ -2585,7 +2652,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Available earnings-call transcript dates and reporting periods."
         },
         "earning-call-transcript-latest": {
             "class": "EarningCallTranscriptLatest",
@@ -2614,7 +2682,8 @@
             "capture": {
                 "limit": 1,
                 "page": 0
-            }
+            },
+            "description": "Recently available earnings-call transcripts across companies."
         },
         "earnings": {
             "class": "Earnings",
@@ -2652,7 +2721,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company earnings events, including actual values and estimates when available."
         },
         "earnings-calendar": {
             "class": "EarningsCalendar",
@@ -2697,7 +2767,8 @@
                 "from": "2026-03-06",
                 "to": "2026-06-06",
                 "page": 0
-            }
+            },
+            "description": "Earnings events across symbols for the requested calendar window."
         },
         "earnings-surprises-bulk": {
             "class": "EarningsSurprisesBulk",
@@ -2720,7 +2791,8 @@
             ],
             "capture": {
                 "year": "2026"
-            }
+            },
+            "description": "Bulk earnings surprises records; request remaining partitions or dates explicitly when applicable."
         },
         "earnings-transcript-list": {
             "class": "EarningsTranscriptList",
@@ -2732,7 +2804,8 @@
                 "companyName",
                 "noOfTranscripts"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Symbols with earnings-call transcripts available from the provider."
         },
         "economic-calendar": {
             "class": "EconomicCalendar",
@@ -2774,7 +2847,8 @@
             "capture": {
                 "from": "2026-01-27",
                 "to": "2026-04-27"
-            }
+            },
+            "description": "Scheduled economic releases and their reported or expected values."
         },
         "economic-indicators": {
             "class": "EconomicIndicators",
@@ -2809,7 +2883,8 @@
                 "name": "GDP",
                 "from": "2025-04-27",
                 "to": "2026-04-27"
-            }
+            },
+            "description": "Historical values for a named economic indicator."
         },
         "employee-count": {
             "class": "EmployeeCount",
@@ -2843,7 +2918,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "The provider's latest reported employee count for a company."
         },
         "enterprise-values": {
             "class": "EnterpriseValues",
@@ -2866,7 +2942,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -2882,7 +2959,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Historical enterprise-value components for a company."
         },
         "eod-bulk": {
             "class": "EodBulk",
@@ -2908,7 +2986,8 @@
             ],
             "capture": {
                 "date": "2024-10-22"
-            }
+            },
+            "description": "Bulk end-of-day price records; request remaining partitions or dates explicitly when applicable."
         },
         "esg-benchmark": {
             "class": "ESGBenchmark",
@@ -2930,7 +3009,8 @@
                 "governanceScore",
                 "ESGScore"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Provider environmental, social and governance benchmarks by sector."
         },
         "esg-disclosures": {
             "class": "ESGDisclosures",
@@ -2959,7 +3039,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Company environmental, social and governance disclosures."
         },
         "esg-ratings": {
             "class": "ESGRatings",
@@ -2984,7 +3065,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Provider environmental, social and governance ratings for a company."
         },
         "etf-holder-bulk": {
             "class": "EtfHolderBulk",
@@ -3011,7 +3093,8 @@
             ],
             "capture": {
                 "part": "1"
-            }
+            },
+            "description": "Bulk ETF asset holdings, including shares and portfolio weights; request other partitions explicitly."
         },
         "etf-list": {
             "class": "EtfList",
@@ -3022,7 +3105,8 @@
                 "symbol",
                 "name"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Exchange-traded fund symbols available from the provider."
         },
         "etf/asset-exposure": {
             "class": "EtfAssetExposure",
@@ -3033,7 +3117,8 @@
                     "type": "string",
                     "phpType": "string",
                     "required": true,
-                    "example": "AAPL"
+                    "example": "AAPL",
+                    "description": "Underlying security symbol, e.g. AAPL, rather than the symbol of an ETF."
                 }
             },
             "fields": [
@@ -3045,7 +3130,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "ETFs holding the specified underlying security, rather than an ETF's own holdings."
         },
         "etf/country-weightings": {
             "class": "EtfCountryWeightings",
@@ -3065,7 +3151,8 @@
             ],
             "capture": {
                 "symbol": "SPY"
-            }
+            },
+            "description": "Portfolio country allocation weights for an ETF."
         },
         "etf/holdings": {
             "class": "EtfHoldings",
@@ -3092,7 +3179,8 @@
             ],
             "capture": {
                 "symbol": "SPY"
-            }
+            },
+            "description": "Constituents and portfolio weights reported for an ETF."
         },
         "etf/info": {
             "class": "EtfInfo",
@@ -3129,7 +3217,8 @@
             ],
             "capture": {
                 "symbol": "SPY"
-            }
+            },
+            "description": "ETF metadata, fund characteristics and reported assets."
         },
         "etf/sector-weightings": {
             "class": "EtfSectorWeightings",
@@ -3150,7 +3239,8 @@
             ],
             "capture": {
                 "symbol": "SPY"
-            }
+            },
+            "description": "Portfolio sector allocation weights for an ETF."
         },
         "exchange-market-hours": {
             "class": "ExchangeMarketHours",
@@ -3180,7 +3270,8 @@
             ],
             "capture": {
                 "exchange": "NASDAQ"
-            }
+            },
+            "description": "Trading-session hours and open/closed status for one exchange."
         },
         "executive-compensation-benchmark": {
             "class": "ExecutiveCompensationBenchmark",
@@ -3199,7 +3290,8 @@
                 "year",
                 "averageCompensation"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Executive compensation benchmarks for the requested reporting year."
         },
         "financial-growth": {
             "class": "FinancialGrowth",
@@ -3222,7 +3314,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -3274,7 +3367,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Changes in financial statement items between reporting periods."
         },
         "financial-reports-dates": {
             "class": "FinancialReportsDates",
@@ -3297,7 +3391,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Available company financial-report dates and download references."
         },
         "financial-reports-json": {
             "class": "FinancialReportsJson",
@@ -3320,7 +3415,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "FY"
+                    "example": "FY",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -3399,7 +3495,8 @@
                 "symbol": "AAPL",
                 "year": 2022,
                 "period": "FY"
-            }
+            },
+            "description": "Company financial-report content in the provider's JSON layout."
         },
         "financial-reports-xlsx": {
             "class": "FinancialReportsXlsx",
@@ -3422,7 +3519,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "FY"
+                    "example": "FY",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -3501,7 +3599,8 @@
                 "symbol": "AAPL",
                 "year": 2022,
                 "period": "FY"
-            }
+            },
+            "description": "Company financial report as original XLSX bytes, not iterable records."
         },
         "financial-scores": {
             "class": "FinancialScores",
@@ -3530,7 +3629,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Provider financial-health scores, including Altman Z and Piotroski scores."
         },
         "financial-statement-full-as-reported": {
             "class": "FinancialStatementFullAsReported",
@@ -3553,7 +3653,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "annual"
+                    "example": "annual",
+                    "description": "Reporting frequency: annual or quarter."
                 }
             },
             "fields": [
@@ -3567,7 +3668,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Combined financial statement items in the provider's as-reported format."
         },
         "financial-statement-symbol-list": {
             "class": "FinancialStatementSymbolList",
@@ -3580,7 +3682,8 @@
                 "tradingCurrency",
                 "reportingCurrency"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Symbols with financial statements available from the provider."
         },
         "fmp-articles": {
             "class": "FmpArticles",
@@ -3613,7 +3716,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Financial articles published through FMP."
         },
         "forex-list": {
             "class": "ForexList",
@@ -3627,7 +3731,8 @@
                 "fromName",
                 "toName"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Currency-pair symbols and market identifiers available from the provider."
         },
         "fundraising": {
             "class": "Fundraising",
@@ -3688,7 +3793,8 @@
             ],
             "capture": {
                 "cik": "0001547416"
-            }
+            },
+            "description": "Company fundraising disclosures."
         },
         "fundraising-latest": {
             "class": "FundraisingLatest",
@@ -3762,7 +3868,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Recently published fundraising disclosures."
         },
         "fundraising-search": {
             "class": "FundraisingSearch",
@@ -3783,7 +3890,8 @@
             ],
             "capture": {
                 "name": "NJOY"
-            }
+            },
+            "description": "Company-filtered fundraising disclosures."
         },
         "funds/disclosure": {
             "class": "FundsDisclosure",
@@ -3844,7 +3952,8 @@
                 "symbol": "VWO",
                 "year": "2023",
                 "quarter": "4"
-            }
+            },
+            "description": "Fund holding disclosures for the requested reporting period."
         },
         "funds/disclosure-dates": {
             "class": "FundsDisclosureDates",
@@ -3871,7 +3980,8 @@
             ],
             "capture": {
                 "symbol": "VWO"
-            }
+            },
+            "description": "Available dates and periods for fund holding disclosures."
         },
         "funds/disclosure-holders-latest": {
             "class": "FundsDisclosureHoldersLatest",
@@ -3896,7 +4006,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Latest reported fund holders of a specified security."
         },
         "funds/disclosure-holders-search": {
             "class": "FundsDisclosureHoldersSearch",
@@ -3927,7 +4038,8 @@
             ],
             "capture": {
                 "name": "Federated Hermes Government Income Securities, Inc."
-            }
+            },
+            "description": "Fund-holder matches for a name search."
         },
         "governance-executive-compensation": {
             "class": "GovernanceExecutiveCompensation",
@@ -3960,7 +4072,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Reported executive compensation components for a company."
         },
         "grades": {
             "class": "Grades",
@@ -3984,7 +4097,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Analyst rating changes and their publishing firms."
         },
         "grades-consensus": {
             "class": "GradesConsensus",
@@ -4009,7 +4123,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Aggregated analyst rating counts for a company."
         },
         "grades-historical": {
             "class": "GradesHistorical",
@@ -4041,7 +4156,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Historical analyst rating distributions for a company."
         },
         "historical-chart/15min": {
             "class": "HistoricalChart15min",
@@ -4091,7 +4207,8 @@
                 "symbol": "AAPL",
                 "from": "2024-01-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Intraday OHLCV price bars at a fixed 15min interval."
         },
         "historical-chart/1hour": {
             "class": "HistoricalChart1hour",
@@ -4141,7 +4258,8 @@
                 "symbol": "AAPL",
                 "from": "2024-01-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Intraday OHLCV price bars at a fixed 1hour interval."
         },
         "historical-chart/1min": {
             "class": "HistoricalChart1min",
@@ -4191,7 +4309,8 @@
                 "symbol": "AAPL",
                 "from": "2024-01-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Intraday OHLCV price bars at a fixed 1min interval."
         },
         "historical-chart/30min": {
             "class": "HistoricalChart30min",
@@ -4241,7 +4360,8 @@
                 "symbol": "AAPL",
                 "from": "2024-01-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Intraday OHLCV price bars at a fixed 30min interval."
         },
         "historical-chart/4hour": {
             "class": "HistoricalChart4hour",
@@ -4291,7 +4411,8 @@
                 "symbol": "AAPL",
                 "from": "2024-01-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Intraday OHLCV price bars at a fixed 4hour interval."
         },
         "historical-chart/5min": {
             "class": "HistoricalChart5min",
@@ -4341,7 +4462,8 @@
                 "symbol": "AAPL",
                 "from": "2024-01-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Intraday OHLCV price bars at a fixed 5min interval."
         },
         "historical-dowjones-constituent": {
             "class": "HistoricalDowjonesConstituent",
@@ -4357,7 +4479,8 @@
                 "symbol",
                 "reason"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Historical membership changes in the Dow Jones index."
         },
         "historical-employee-count": {
             "class": "HistoricalEmployeeCount",
@@ -4391,7 +4514,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Reported employee counts over time for a company."
         },
         "historical-industry-pe": {
             "class": "HistoricalIndustryPe",
@@ -4433,7 +4557,8 @@
                 "industry": "Biotechnology",
                 "from": "2024-02-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Historical price/earnings ratios by industry."
         },
         "historical-industry-performance": {
             "class": "HistoricalIndustryPerformance",
@@ -4475,7 +4600,8 @@
                 "industry": "Biotechnology",
                 "from": "2024-02-01",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Historical price/earnings ratios by industry."
         },
         "historical-market-capitalization": {
             "class": "HistoricalMarketCapitalization",
@@ -4517,7 +4643,8 @@
                 "limit": 1,
                 "from": "2026-04-16",
                 "to": "2026-07-16"
-            }
+            },
+            "description": "Market-capitalization observations for the requested date range."
         },
         "historical-nasdaq-constituent": {
             "class": "HistoricalNasdaqConstituent",
@@ -4533,7 +4660,8 @@
                 "symbol",
                 "reason"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Historical membership changes in the Nasdaq index."
         },
         "historical-price-eod/dividend-adjusted": {
             "class": "HistoricalPriceEodDividendAdjusted",
@@ -4572,7 +4700,8 @@
                 "symbol": "AAPL",
                 "from": "2026-04-30",
                 "to": "2026-07-30"
-            }
+            },
+            "description": "Daily prices with the provider's dividend adjustments."
         },
         "historical-price-eod/full": {
             "class": "HistoricalPriceEodFull",
@@ -4614,7 +4743,8 @@
                 "symbol": "AAPL",
                 "from": "2026-04-30",
                 "to": "2026-07-30"
-            }
+            },
+            "description": "Daily OHLCV history with the provider's split adjustments."
         },
         "historical-price-eod/light": {
             "class": "HistoricalPriceEodLight",
@@ -4650,7 +4780,8 @@
                 "symbol": "AAPL",
                 "from": "2026-04-30",
                 "to": "2026-07-30"
-            }
+            },
+            "description": "Daily price and volume history with a reduced field set."
         },
         "historical-price-eod/non-split-adjusted": {
             "class": "HistoricalPriceEodNonSplitAdjusted",
@@ -4689,7 +4820,8 @@
                 "symbol": "AAPL",
                 "from": "2026-04-30",
                 "to": "2026-07-30"
-            }
+            },
+            "description": "Daily prices without split adjustments; FMP still uses adj-prefixed field names."
         },
         "historical-sector-pe": {
             "class": "HistoricalSectorPe",
@@ -4731,7 +4863,8 @@
                 "from": "2024-02-01",
                 "sector": "Energy",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Historical price/earnings ratios by sector."
         },
         "historical-sector-performance": {
             "class": "HistoricalSectorPerformance",
@@ -4773,7 +4906,8 @@
                 "from": "2024-02-01",
                 "sector": "Energy",
                 "to": "2024-03-01"
-            }
+            },
+            "description": "Historical price/earnings ratios by sector."
         },
         "historical-sp500-constituent": {
             "class": "HistoricalSp500Constituent",
@@ -4789,7 +4923,8 @@
                 "symbol",
                 "reason"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Historical membership changes in the S&P 500 index."
         },
         "holidays-by-exchange": {
             "class": "HolidaysByExchange",
@@ -4827,7 +4962,8 @@
                 "exchange": "NASDAQ",
                 "from": "2025-04-27",
                 "to": "2026-04-27"
-            }
+            },
+            "description": "Exchange holidays and their trading-session effects."
         },
         "house-latest": {
             "class": "HouseLatest",
@@ -4868,7 +5004,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Reported securities transactions by House members."
         },
         "house-trades": {
             "class": "HouseTrades",
@@ -4916,7 +5053,8 @@
                 "symbol": "AAPL",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Reported securities transactions by House members."
         },
         "house-trades-by-id": {
             "class": "HouseTradesByID",
@@ -4963,7 +5101,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Reported securities transactions by House members."
         },
         "house-trades-by-name": {
             "class": "HouseTradesByName",
@@ -4997,7 +5136,8 @@
             ],
             "capture": {
                 "name": "James"
-            }
+            },
+            "description": "Reported securities transactions by House members."
         },
         "income-statement": {
             "class": "IncomeStatement",
@@ -5020,7 +5160,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -5067,7 +5208,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company income statement items for the requested reporting frequency."
         },
         "income-statement-as-reported": {
             "class": "IncomeStatementAsReported",
@@ -5090,7 +5232,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "annual"
+                    "example": "annual",
+                    "description": "Reporting frequency: annual or quarter."
                 }
             },
             "fields": [
@@ -5104,7 +5247,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company income statement items in the provider's as-reported format."
         },
         "income-statement-bulk": {
             "class": "IncomeStatementBulk",
@@ -5121,7 +5265,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -5168,7 +5313,8 @@
             "capture": {
                 "year": "2026",
                 "period": "Q1"
-            }
+            },
+            "description": "Bulk income statement records; request remaining partitions or dates explicitly when applicable."
         },
         "income-statement-growth": {
             "class": "IncomeStatementGrowth",
@@ -5191,7 +5337,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -5233,7 +5380,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Changes in company income statement items between reporting periods."
         },
         "income-statement-growth-bulk": {
             "class": "IncomeStatementGrowthBulk",
@@ -5250,7 +5398,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": true,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -5292,7 +5441,8 @@
             "capture": {
                 "year": "2026",
                 "period": "Q1"
-            }
+            },
+            "description": "Bulk income statement growth records; request remaining partitions or dates explicitly when applicable."
         },
         "income-statement-ttm": {
             "class": "IncomeStatementTTM",
@@ -5356,7 +5506,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company income statement data for the trailing twelve-month period."
         },
         "index-list": {
             "class": "IndexList",
@@ -5369,7 +5520,8 @@
                 "exchange",
                 "currency"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Market-index symbols available from the provider."
         },
         "industry-classification-search": {
             "class": "IndustryClassificationSearch",
@@ -5398,7 +5550,8 @@
             "fields": [],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Search company SIC classifications by symbol or classification criteria."
         },
         "industry-pe-snapshot": {
             "class": "IndustryPeSnapshot",
@@ -5432,7 +5585,8 @@
             ],
             "capture": {
                 "date": "2024-02-01"
-            }
+            },
+            "description": "Dated snapshot of price/earnings ratios by industry."
         },
         "industry-performance-snapshot": {
             "class": "IndustryPerformanceSnapshot",
@@ -5466,7 +5620,8 @@
             ],
             "capture": {
                 "date": "2024-02-01"
-            }
+            },
+            "description": "Dated snapshot of price/earnings ratios by industry."
         },
         "insider-trading-transaction-type": {
             "class": "InsiderTradingTransactionType",
@@ -5476,7 +5631,8 @@
             "fields": [
                 "transactionType"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Transaction-type labels used in insider trading disclosures."
         },
         "insider-trading/latest": {
             "class": "InsiderTradingLatest",
@@ -5523,7 +5679,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Recent disclosed insider transactions across companies."
         },
         "insider-trading/reporting-name": {
             "class": "InsiderTradingReportingName",
@@ -5543,7 +5700,8 @@
             ],
             "capture": {
                 "name": "Zuckerberg"
-            }
+            },
+            "description": "Reporting persons matching the requested name."
         },
         "insider-trading/search": {
             "class": "InsiderTradingSearch",
@@ -5608,7 +5766,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Disclosed insider transactions selected by symbol or reporting person."
         },
         "insider-trading/statistics": {
             "class": "InsiderTradingStatistics",
@@ -5639,7 +5798,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Aggregated insider-transaction statistics for a company."
         },
         "institutional-ownership/dates": {
             "class": "InstitutionalOwnershipDates",
@@ -5660,7 +5820,8 @@
             ],
             "capture": {
                 "cik": "0001067983"
-            }
+            },
+            "description": "Available institutional holding-report dates for one holder."
         },
         "institutional-ownership/extract": {
             "class": "InstitutionalOwnershipExtract",
@@ -5706,7 +5867,8 @@
                 "cik": "0001388838",
                 "year": "2023",
                 "quarter": "3"
-            }
+            },
+            "description": "Positions disclosed by an institutional holder for one reporting period."
         },
         "institutional-ownership/extract-analytics/holder": {
             "class": "InstitutionalOwnershipExtractAnalyticsHolder",
@@ -5791,7 +5953,8 @@
                 "quarter": "3",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Provider analytics for an institutional holder's disclosed positions."
         },
         "institutional-ownership/holder-industry-breakdown": {
             "class": "InstitutionalOwnershipHolderIndustryBreakdown",
@@ -5835,7 +5998,8 @@
                 "cik": "0001067983",
                 "year": "2023",
                 "quarter": "3"
-            }
+            },
+            "description": "Industry allocation of an institutional holder's disclosed portfolio."
         },
         "institutional-ownership/holder-performance-summary": {
             "class": "InstitutionalOwnershipHolderPerformanceSummary",
@@ -5893,7 +6057,8 @@
             "capture": {
                 "cik": "0001067983",
                 "page": 0
-            }
+            },
+            "description": "Provider performance statistics for an institutional holder."
         },
         "institutional-ownership/industry-summary": {
             "class": "InstitutionalOwnershipIndustrySummary",
@@ -5921,7 +6086,8 @@
             "capture": {
                 "year": "2023",
                 "quarter": "3"
-            }
+            },
+            "description": "Aggregated institutional ownership statistics by industry."
         },
         "institutional-ownership/latest": {
             "class": "InstitutionalOwnershipLatest",
@@ -5954,7 +6120,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Recently available institutional holding filings."
         },
         "institutional-ownership/symbol-positions-summary": {
             "class": "InstitutionalOwnershipSymbolPositionsSummary",
@@ -6022,7 +6189,8 @@
                 "symbol": "AAPL",
                 "year": "2023",
                 "quarter": "3"
-            }
+            },
+            "description": "Aggregated institutional ownership and position statistics for one symbol."
         },
         "ipos-calendar": {
             "class": "IposCalendar",
@@ -6056,7 +6224,8 @@
             "capture": {
                 "from": "2026-03-06",
                 "to": "2026-06-06"
-            }
+            },
+            "description": "Initial public offering events for the requested calendar window."
         },
         "ipos-disclosure": {
             "class": "IposDisclosure",
@@ -6088,7 +6257,8 @@
             "capture": {
                 "from": "2026-03-06",
                 "to": "2026-06-06"
-            }
+            },
+            "description": "Initial public offering disclosure filings."
         },
         "ipos-prospectus": {
             "class": "IposProspectus",
@@ -6126,7 +6296,8 @@
             "capture": {
                 "from": "2026-03-06",
                 "to": "2026-06-06"
-            }
+            },
+            "description": "Initial public offering prospectus information."
         },
         "key-executives": {
             "class": "KeyExecutives",
@@ -6152,7 +6323,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Reported company executives and their roles."
         },
         "key-metrics": {
             "class": "KeyMetrics",
@@ -6175,7 +6347,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -6230,7 +6403,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Financial metrics tied to a company's reporting periods."
         },
         "key-metrics-ttm": {
             "class": "KeyMetricsTTM",
@@ -6291,7 +6465,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Financial metrics for the trailing twelve-month period."
         },
         "key-metrics-ttm-bulk": {
             "class": "KeyMetricsTTMBulk",
@@ -6343,7 +6518,8 @@
                 "tangibleAssetValueTTM",
                 "netCurrentAssetValueTTM"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Bulk key metrics trailing twelve-month records; request remaining partitions or dates explicitly when applicable."
         },
         "latest-financial-statements": {
             "class": "LatestFinancialStatements",
@@ -6373,7 +6549,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Recently available financial statements across companies."
         },
         "levered-discounted-cash-flow": {
             "class": "LeveredDiscountedCashFlow",
@@ -6395,7 +6572,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "The provider's levered discounted cash-flow valuation."
         },
         "market-capitalization": {
             "class": "MarketCapitalization",
@@ -6416,7 +6594,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Current market capitalization reported for one company."
         },
         "market-capitalization-batch": {
             "class": "MarketCapitalizationBatch",
@@ -6437,7 +6616,8 @@
             ],
             "capture": {
                 "symbols": "AAPL,MSFT,GOOG"
-            }
+            },
+            "description": "Market-capitalization records for several requested symbols."
         },
         "market-risk-premium": {
             "class": "MarketRiskPremium",
@@ -6450,7 +6630,8 @@
                 "countryRiskPremium",
                 "totalEquityRiskPremium"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Provider country-level market-risk premium estimates."
         },
         "mergers-acquisitions-latest": {
             "class": "MergersAcquisitionsLatest",
@@ -6484,7 +6665,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Recently reported merger and acquisition events."
         },
         "mergers-acquisitions-search": {
             "class": "MergersAcquisitionsSearch",
@@ -6511,7 +6693,8 @@
             ],
             "capture": {
                 "name": "Apple"
-            }
+            },
+            "description": "Merger and acquisition events selected by company-name search."
         },
         "most-actives": {
             "class": "MostActives",
@@ -6526,7 +6709,8 @@
                 "changesPercentage",
                 "exchange"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Symbols with the highest reported trading activity in the current market snapshot."
         },
         "nasdaq-constituent": {
             "class": "NasdaqConstituent",
@@ -6543,7 +6727,8 @@
                 "cik",
                 "founded"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Current constituent companies of the Nasdaq index."
         },
         "news/crypto": {
             "class": "NewsCrypto",
@@ -6597,7 +6782,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Symbol-filtered cryptocurrency articles."
         },
         "news/crypto-latest": {
             "class": "NewsCryptoLatest",
@@ -6644,7 +6830,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Latest cryptocurrency articles."
         },
         "news/forex": {
             "class": "NewsForex",
@@ -6698,7 +6885,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Symbol-filtered currency-market articles."
         },
         "news/forex-latest": {
             "class": "NewsForexLatest",
@@ -6745,7 +6933,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Latest currency-market articles."
         },
         "news/general-latest": {
             "class": "NewsGeneralLatest",
@@ -6792,7 +6981,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Latest general financial articles."
         },
         "news/press-releases": {
             "class": "NewsPressReleases",
@@ -6846,7 +7036,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Symbol-filtered company press releases."
         },
         "news/press-releases-latest": {
             "class": "NewsPressReleasesLatest",
@@ -6893,7 +7084,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Latest company press releases."
         },
         "news/stock": {
             "class": "NewsStock",
@@ -6947,7 +7139,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Symbol-filtered stock-market articles."
         },
         "news/stock-latest": {
             "class": "NewsStockLatest",
@@ -6994,7 +7187,8 @@
                 "to": "2026-04-28",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Latest stock-market articles."
         },
         "owner-earnings": {
             "class": "OwnerEarnings",
@@ -7029,7 +7223,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Provider owner-earnings estimates and their financial components."
         },
         "peers-bulk": {
             "class": "PeersBulk",
@@ -7040,7 +7235,8 @@
                 "symbol",
                 "peers"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Bulk peers records; request remaining partitions or dates explicitly when applicable."
         },
         "price-target-consensus": {
             "class": "PriceTargetConsensus",
@@ -7063,7 +7259,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Aggregated analyst price-target statistics for a company."
         },
         "price-target-summary": {
             "class": "PriceTargetSummary",
@@ -7091,7 +7288,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Summary of analyst price targets over the provider's reporting windows."
         },
         "price-target-summary-bulk": {
             "class": "PriceTargetSummaryBulk",
@@ -7110,7 +7308,8 @@
                 "allTimeAvgPriceTarget",
                 "publishers"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Bulk price target summary records; request remaining partitions or dates explicitly when applicable."
         },
         "profile": {
             "class": "Profile",
@@ -7164,7 +7363,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Company identity, listing details and market overview for a symbol."
         },
         "profile-bulk": {
             "class": "ProfileBulk",
@@ -7218,7 +7418,8 @@
             ],
             "capture": {
                 "part": "0"
-            }
+            },
+            "description": "Bulk profile records; request remaining partitions or dates explicitly when applicable."
         },
         "profile-cik": {
             "class": "ProfileCIK",
@@ -7272,7 +7473,8 @@
             ],
             "capture": {
                 "cik": "320193"
-            }
+            },
+            "description": "Company profile records selected by SEC identifier instead of ticker."
         },
         "quote": {
             "class": "Quote",
@@ -7307,7 +7509,8 @@
             ],
             "capture": {
                 "symbol": "^VIX"
-            }
+            },
+            "description": "The provider's latest quote for one symbol; access and timeliness depend on the account."
         },
         "quote-short": {
             "class": "QuoteShort",
@@ -7329,7 +7532,8 @@
             ],
             "capture": {
                 "symbol": "^VIX"
-            }
+            },
+            "description": "The provider's latest price and volume with a reduced quote field set."
         },
         "rating-bulk": {
             "class": "RatingBulk",
@@ -7347,7 +7551,8 @@
                 "priceToEarningsScore",
                 "priceToBookScore"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Bulk rating records; request remaining partitions or dates explicitly when applicable."
         },
         "ratings-historical": {
             "class": "RatingsHistorical",
@@ -7382,7 +7587,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Historical provider company ratings and scoring components."
         },
         "ratings-snapshot": {
             "class": "RatingsSnapshot",
@@ -7409,7 +7615,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "The provider's current company rating and scoring components."
         },
         "ratios": {
             "class": "Ratios",
@@ -7432,7 +7639,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "Q1"
+                    "example": "Q1",
+                    "description": "Report label: FY or Q1-Q4, rather than annual/quarter."
                 }
             },
             "fields": [
@@ -7506,7 +7714,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Financial ratios tied to a company's reporting periods."
         },
         "ratios-ttm": {
             "class": "RatiosTTM",
@@ -7586,7 +7795,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Financial ratios for the trailing twelve-month period."
         },
         "ratios-ttm-bulk": {
             "class": "RatiosTTMBulk",
@@ -7655,7 +7865,8 @@
                 "enterpriseValueMultipleTTM",
                 "dividendPerShareTTM"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Bulk ratios trailing twelve-month records; request remaining partitions or dates explicitly when applicable."
         },
         "revenue-geographic-segmentation": {
             "class": "RevenueGeographicSegmentation",
@@ -7672,7 +7883,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "annual"
+                    "example": "annual",
+                    "description": "Reporting frequency: annual or quarter."
                 },
                 "structure": {
                     "type": "string",
@@ -7691,7 +7903,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Company revenue grouped by reported geographic segment."
         },
         "revenue-product-segmentation": {
             "class": "RevenueProductSegmentation",
@@ -7708,7 +7921,8 @@
                     "type": "string",
                     "phpType": "string|Period|ReportPeriod",
                     "required": false,
-                    "example": "annual"
+                    "example": "annual",
+                    "description": "Reporting frequency: annual or quarter."
                 },
                 "structure": {
                     "type": "string",
@@ -7727,7 +7941,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Company revenue grouped by reported product segment."
         },
         "scores-bulk": {
             "class": "ScoresBulk",
@@ -7747,7 +7962,8 @@
                 "totalLiabilities",
                 "revenue"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Bulk scores records; request remaining partitions or dates explicitly when applicable."
         },
         "search-cik": {
             "class": "SearchCIK",
@@ -7778,7 +7994,8 @@
             "capture": {
                 "cik": "320193",
                 "limit": 1
-            }
+            },
+            "description": "Resolve company identities from a Central Index Key (CIK)."
         },
         "search-cusip": {
             "class": "SearchCUSIP",
@@ -7800,7 +8017,8 @@
             ],
             "capture": {
                 "cusip": "037833100"
-            }
+            },
+            "description": "Resolve security identities from a CUSIP identifier."
         },
         "search-exchange-variants": {
             "class": "SearchExchangeVariants",
@@ -7854,7 +8072,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Listings on other exchanges for the requested provider symbol."
         },
         "search-isin": {
             "class": "SearchIsin",
@@ -7876,7 +8095,8 @@
             ],
             "capture": {
                 "isin": "US0378331005"
-            }
+            },
+            "description": "Resolve listings from an International Securities Identification Number (ISIN)."
         },
         "search-name": {
             "class": "SearchName",
@@ -7912,7 +8132,8 @@
             "capture": {
                 "query": "AA",
                 "limit": 1
-            }
+            },
+            "description": "Company/listing matches for a name fragment."
         },
         "search-symbol": {
             "class": "SearchSymbol",
@@ -7948,7 +8169,8 @@
             "capture": {
                 "query": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Company/listing matches for a ticker query."
         },
         "sec-filings-8k": {
             "class": "SECFilings8k",
@@ -7995,7 +8217,8 @@
                 "to": "2024-03-01",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Recent SEC Form 8-K filings across companies."
         },
         "sec-filings-company-search/cik": {
             "class": "SECFilingsCompanySearchCIK",
@@ -8020,7 +8243,8 @@
             ],
             "capture": {
                 "cik": "0000320193"
-            }
+            },
+            "description": "SEC registrant matches selected by cik."
         },
         "sec-filings-company-search/name": {
             "class": "SECFilingsCompanySearchName",
@@ -8045,7 +8269,8 @@
             ],
             "capture": {
                 "company": "Berkshire"
-            }
+            },
+            "description": "SEC registrant matches selected by name."
         },
         "sec-filings-company-search/symbol": {
             "class": "SECFilingsCompanySearchSymbol",
@@ -8070,7 +8295,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "SEC registrant matches selected by symbol."
         },
         "sec-filings-financials": {
             "class": "SECFilingsFinancials",
@@ -8117,7 +8343,8 @@
                 "to": "2024-03-01",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "SEC filings associated with company financial reports."
         },
         "sec-filings-search/cik": {
             "class": "SECFilingsSearchCIK",
@@ -8170,7 +8397,8 @@
                 "to": "2024-03-01",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "SEC filings selected by cik."
         },
         "sec-filings-search/form-type": {
             "class": "SECFilingsSearchFormType",
@@ -8223,7 +8451,8 @@
                 "to": "2024-03-01",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "SEC filings selected by filing form type."
         },
         "sec-filings-search/symbol": {
             "class": "SECFilingsSearchSymbol",
@@ -8276,7 +8505,8 @@
                 "to": "2024-03-01",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "SEC filings selected by symbol."
         },
         "sec-profile": {
             "class": "SECProfile",
@@ -8329,7 +8559,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "SEC registrant metadata, including filing identifiers and classification."
         },
         "sector-pe-snapshot": {
             "class": "SectorPeSnapshot",
@@ -8363,7 +8594,8 @@
             ],
             "capture": {
                 "date": "2024-02-01"
-            }
+            },
+            "description": "Dated snapshot of price/earnings ratios by sector."
         },
         "sector-performance-snapshot": {
             "class": "SectorPerformanceSnapshot",
@@ -8397,7 +8629,8 @@
             ],
             "capture": {
                 "date": "2024-02-01"
-            }
+            },
+            "description": "Dated snapshot of price/earnings ratios by sector."
         },
         "senate-latest": {
             "class": "SenateLatest",
@@ -8437,7 +8670,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Reported securities transactions by senators."
         },
         "senate-net-worth": {
             "class": "SenateNetWorth",
@@ -8472,7 +8706,8 @@
             ],
             "capture": {
                 "senateID": "P000197"
-            }
+            },
+            "description": "Reported net-worth records for individual legislators."
         },
         "senate-net-worth-aggregated": {
             "class": "SenateNetWorthAggregated",
@@ -8510,7 +8745,8 @@
             ],
             "capture": {
                 "senateID": "P000197"
-            }
+            },
+            "description": "Aggregated legislators' reported net-worth records."
         },
         "senate-positions": {
             "class": "SenatePositions",
@@ -8561,7 +8797,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Legislators' public-office positions, rather than portfolio holdings."
         },
         "senate-profile": {
             "class": "SenateProfile",
@@ -8620,7 +8857,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Legislator identity, affiliation and public-office metadata."
         },
         "senate-trades": {
             "class": "SenateTrades",
@@ -8668,7 +8906,8 @@
                 "symbol": "AAPL",
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Reported securities transactions by senators."
         },
         "senate-trades-by-id": {
             "class": "SenateTradesByID",
@@ -8715,7 +8954,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "Reported securities transactions by senators."
         },
         "senate-trades-by-name": {
             "class": "SenateTradesByName",
@@ -8749,7 +8989,8 @@
             ],
             "capture": {
                 "name": "Jerry"
-            }
+            },
+            "description": "Reported securities transactions by senators."
         },
         "shares-float": {
             "class": "SharesFloat",
@@ -8773,7 +9014,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Reported share counts and publicly tradable float for one company."
         },
         "shares-float-all": {
             "class": "SharesFloatAll",
@@ -8803,7 +9045,8 @@
             "capture": {
                 "limit": 1,
                 "page": 0
-            }
+            },
+            "description": "Reported share counts and publicly tradable float across companies."
         },
         "sp500-constituent": {
             "class": "Sp500Constituent",
@@ -8820,7 +9063,8 @@
                 "cik",
                 "founded"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Current constituent companies of the S&P 500 index."
         },
         "splits": {
             "class": "Splits",
@@ -8850,7 +9094,8 @@
             "capture": {
                 "symbol": "AAPL",
                 "limit": 1
-            }
+            },
+            "description": "Historical stock-split events for one symbol."
         },
         "splits-calendar": {
             "class": "SplitsCalendar",
@@ -8887,7 +9132,8 @@
                 "from": "2026-03-06",
                 "to": "2026-06-06",
                 "page": 0
-            }
+            },
+            "description": "Stock-split events across symbols for the requested calendar window."
         },
         "standard-industrial-classification-list": {
             "class": "StandardIndustrialClassificationList",
@@ -8912,7 +9158,8 @@
                 "sicCode",
                 "industryTitle"
             ],
-            "capture": []
+            "capture": [],
+            "description": "SIC industry codes and their classification labels."
         },
         "stock-list": {
             "class": "StockList",
@@ -8923,7 +9170,8 @@
                 "symbol",
                 "companyName"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Company and tradable-security symbols available from the provider."
         },
         "stock-peers": {
             "class": "StockPeers",
@@ -8945,7 +9193,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Companies the provider identifies as peers of the requested company."
         },
         "stock-price-change": {
             "class": "StockPriceChange",
@@ -8975,7 +9224,8 @@
             ],
             "capture": {
                 "symbol": "AAPL"
-            }
+            },
+            "description": "Price changes over several provider-defined historical windows."
         },
         "symbol-change": {
             "class": "SymbolChange",
@@ -9003,7 +9253,8 @@
             ],
             "capture": {
                 "limit": 1
-            }
+            },
+            "description": "Old and new ticker symbols associated with listing changes."
         },
         "technical-indicators/adx": {
             "class": "TechnicalIndicatorsADX",
@@ -9056,7 +9307,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical average directional index (ADX) values calculated by FMP."
         },
         "technical-indicators/dema": {
             "class": "TechnicalIndicatorsDEMA",
@@ -9109,7 +9361,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical double exponential moving average (DEMA) values calculated by FMP."
         },
         "technical-indicators/ema": {
             "class": "TechnicalIndicatorsEMA",
@@ -9162,7 +9415,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical exponential moving average (EMA) values calculated by FMP."
         },
         "technical-indicators/rsi": {
             "class": "TechnicalIndicatorsRSI",
@@ -9215,7 +9469,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical relative strength index (RSI) values calculated by FMP."
         },
         "technical-indicators/sma": {
             "class": "TechnicalIndicatorsSMA",
@@ -9268,7 +9523,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical simple moving average (SMA) values calculated by FMP."
         },
         "technical-indicators/standarddeviation": {
             "class": "TechnicalIndicatorsStandarddeviation",
@@ -9321,7 +9577,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical price standard deviation values calculated by FMP."
         },
         "technical-indicators/tema": {
             "class": "TechnicalIndicatorsTEMA",
@@ -9374,7 +9631,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical triple exponential moving average (TEMA) values calculated by FMP."
         },
         "technical-indicators/williams": {
             "class": "TechnicalIndicatorsWilliams",
@@ -9427,7 +9685,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical Williams %R values calculated by FMP."
         },
         "technical-indicators/wma": {
             "class": "TechnicalIndicatorsWMA",
@@ -9480,7 +9739,8 @@
                 "timeframe": "1day",
                 "from": "2026-03-01",
                 "to": "2026-06-01"
-            }
+            },
+            "description": "Historical weighted moving average (WMA) values calculated by FMP."
         },
         "tipranks-analyst-summary": {
             "class": "TipRanksAnalystSummary",
@@ -9527,7 +9787,8 @@
                 "expertUID": "3c6eb8cf1347a4e5757e628fccb684a93abee587",
                 "from": "2025-06-10",
                 "to": "2026-06-10"
-            }
+            },
+            "description": "TipRanks aggregate analyst performance and rating activity."
         },
         "tipranks-analysts": {
             "class": "TipRanksAnalysts",
@@ -9567,7 +9828,8 @@
             "capture": {
                 "page": 0,
                 "limit": 1
-            }
+            },
+            "description": "TipRanks analyst-directory records and stable expert identifiers."
         },
         "tipranks-firm-summary": {
             "class": "TipRanksFirmSummary",
@@ -9614,7 +9876,8 @@
                 "firmName": "Morgan Stanley",
                 "from": "2025-06-10",
                 "to": "2026-06-10"
-            }
+            },
+            "description": "TipRanks aggregate analyst-firm performance and rating activity."
         },
         "tipranks-pit-analyst": {
             "class": "TipRanksPitAnalyst",
@@ -9679,7 +9942,8 @@
             "capture": {
                 "limit": 1,
                 "page": 0
-            }
+            },
+            "description": "TipRanks analyst observations at the requested point in time."
         },
         "tipranks-pit-symbol": {
             "class": "TipRanksPitSymbol",
@@ -9739,7 +10003,8 @@
                 "symbol": "AAPL",
                 "limit": 1,
                 "page": 0
-            }
+            },
+            "description": "TipRanks company observations at the requested point in time."
         },
         "tipranks-search": {
             "class": "TipRanksSearch",
@@ -9809,7 +10074,8 @@
                 "to": "2026-06-10",
                 "limit": 1,
                 "page": 0
-            }
+            },
+            "description": "TipRanks analyst/firm directory matches for the requested name."
         },
         "tipranks-symbol-summary": {
             "class": "TipRanksSymbolSummary",
@@ -9856,7 +10122,8 @@
                 "symbol": "AAPL",
                 "from": "2025-06-10",
                 "to": "2026-06-10"
-            }
+            },
+            "description": "TipRanks aggregate analyst coverage for one company."
         },
         "treasury-rates": {
             "class": "TreasuryRates",
@@ -9894,7 +10161,8 @@
             "capture": {
                 "from": "2026-01-27",
                 "to": "2026-04-27"
-            }
+            },
+            "description": "Dated US Treasury rates for the provider's reported maturities."
         },
         "upgrades-downgrades-consensus-bulk": {
             "class": "UpgradesDowngradesConsensusBulk",
@@ -9910,7 +10178,8 @@
                 "strongSell",
                 "consensus"
             ],
-            "capture": []
+            "capture": [],
+            "description": "Bulk upgrades downgrades consensus records; request remaining partitions or dates explicitly when applicable."
         }
     }
 }

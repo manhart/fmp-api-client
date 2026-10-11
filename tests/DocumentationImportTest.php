@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// SPDX-FileCopyrightText: 2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
+
 namespace Manhart\Fmp\Tests;
 
 use PHPUnit\Framework\TestCase;
@@ -15,6 +18,11 @@ final class DocumentationImportTest extends TestCase
         $manifest = ['endpoints' => [
             'industry-classification-search' => [
                 'class' => 'IndustryClassificationSearch',
+                'description' => 'Company SIC classification matches.',
+                'parameters' => [
+                    'symbol' => ['description' => 'FMP symbol with any exchange suffix.'],
+                    'removedParameter' => ['description' => 'An obsolete filter.'],
+                ],
                 'capture' => ['symbol' => 'AAPL', 'sicCode' => '7371', 'removedParameter' => 'obsolete'],
             ],
         ]];
@@ -61,6 +69,10 @@ MARKDOWN;
             $result = json_decode(file_get_contents($directory.'/resources/endpoints.json'), true, 512, JSON_THROW_ON_ERROR);
             $capture = $result['endpoints']['industry-classification-search']['capture'];
             $this->assertSame(['year' => 2026, 'symbol' => 'AAPL', 'sicCode' => '7371'], $capture);
+            $contract = $result['endpoints']['industry-classification-search'];
+            $this->assertSame('Company SIC classification matches.', $contract['description']);
+            $this->assertSame('FMP symbol with any exchange suffix.', $contract['parameters']['symbol']['description']);
+            $this->assertArrayNotHasKey('removedParameter', $contract['parameters']);
         } finally {
             foreach ([$directory.'/tools/import-docs.php', $directory.'/resources/endpoints.json', $directory.'/reference.md'] as $file) {
                 if (is_file($file)) {

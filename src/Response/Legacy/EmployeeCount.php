@@ -1,23 +1,19 @@
 <?php
 declare(strict_types=1);
-/*
- * This file is part of manhart/fmp-api-client.
- *
- * @copyright Copyright (c) 2023-2026. Alexander Manhart IT
- * @authors Alexander Manhart
- *
- * EmployeeCount.php created on 10.03.26, 23:22.
- */
+
+// SPDX-FileCopyrightText: 2023-2026 Alexander Manhart IT
+// SPDX-License-Identifier: MIT
 
 namespace Manhart\Fmp\Response\Legacy;
 
-use Manhart\Fmp\Response\Response;
+use Manhart\Fmp\Response\AbstractResponse;
 
-class EmployeeCount extends Response
+/** Reported company employee counts from the Legacy dataset. */
+class EmployeeCount extends AbstractResponse
 {
     protected static string $url = 'v4/employee_count';
 
-    public function getCIK(): string
+    public function getCIK(): ?string
     {
         return $this->getResponseValueAsString('cik');
     }
@@ -27,32 +23,32 @@ class EmployeeCount extends Response
         return $this->getResponseValueAsInt('cik') ?: null;
     }
 
-    public function getSymbol(): string
+    public function getSymbol(): ?string
     {
         return $this->getResponseValueAsString('symbol');
     }
 
-    public function getAcceptanceTime(): \DateTimeInterface
+    public function getAcceptanceTime(): ?\DateTimeInterface
     {
         return $this->getResponseValueAsDate('acceptanceTime');
     }
 
-    public function getPeriodOfReport(): \DateTimeInterface
+    public function getPeriodOfReport(): ?\DateTimeInterface
     {
         return $this->getResponseValueAsDate('periodOfReport');
     }
 
-    public function getCompanyName(): string
+    public function getCompanyName(): ?string
     {
         return $this->getResponseValueAsString('companyName');
     }
 
-    public function getFormType(): string
+    public function getFormType(): ?string
     {
         return $this->getResponseValueAsString('formType');
     }
 
-    public function getFilingDate(): \DateTimeInterface
+    public function getFilingDate(): ?\DateTimeInterface
     {
         return $this->getResponseValueAsDate('filingDate');
     }
@@ -62,7 +58,7 @@ class EmployeeCount extends Response
         return $this->getResponseValueAsInt('employeeCount');
     }
 
-    public function getSource(): string
+    public function getSource(): ?string
     {
         return $this->getResponseValueAsString('source');
     }
