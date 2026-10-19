@@ -96,7 +96,7 @@ final class CaptureCache
     /** @throws \JsonException If the stored metadata is not valid JSON. */
     public function metadata(string $key): array
     {
-        $path = $this->filePath($key.'.json');
+        $path = $this->filePath($key.'.json', 'Recording metadata is missing.');
         $raw = file_get_contents($path);
         if ($raw === false) {
             throw new \RuntimeException('Recording metadata is missing.');
@@ -115,7 +115,7 @@ final class CaptureCache
         if (!isset($metadata['sha256'])) {
             throw new \RuntimeException('Previous recording attempt was interrupted. Use an explicit refresh.');
         }
-        $body = file_get_contents($this->filePath($key.'.body'));
+        $body = file_get_contents($this->filePath($key.'.body', 'Recording is missing or corrupt. Use an explicit refresh.'));
         if ($body === false || hash('sha256', $body) !== $metadata['sha256']) {
             throw new \RuntimeException('Recording is missing or corrupt. Use an explicit refresh.');
         }
@@ -137,12 +137,15 @@ final class CaptureCache
         $this->writeFile($filename, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n");
     }
 
-    /** Reject symlinks, including dangling ones, and special files before reading or writing. */
-    private function filePath(string $filename): string
+    /** Reject links/special files; a missing-message argument also requires the file to exist. */
+    private function filePath(string $filename, ?string $missingMessage = null): string
     {
         $path = $this->directory.'/'.$filename;
         clearstatcache(true, $path);
         $stat = @lstat($path);
+        if ($stat === false && $missingMessage !== null) {
+            throw new \RuntimeException($missingMessage);
+        }
         if ($stat !== false && ($stat['mode'] & 0170000) !== 0100000) {
             throw new \RuntimeException('Recording files must be regular files, not symlinks or special files.');
         }

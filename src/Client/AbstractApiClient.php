@@ -26,7 +26,7 @@ abstract class AbstractApiClient
      * @param int|null $maxResponseBytes Per-request body limit; null leaves it unlimited.
      */
     public function __construct(
-        private readonly string $apiKey,
+        #[\SensitiveParameter] private readonly string $apiKey,
         private readonly int $timeoutSeconds = 60,
         private readonly int $connectTimeoutSeconds = 10,
         private readonly ?int $maxResponseBytes = null,
@@ -39,6 +39,15 @@ abstract class AbstractApiClient
         }
     }
 
+    /** Hide the stored key in var_dump(), print_r() and __debugInfo()-aware dumpers such as Symfony VarDumper. */
+    public function __debugInfo(): array
+    {
+        // Mangled names let dumpers that start from (array) $this replace the real private entry.
+        $info = get_mangled_object_vars($this);
+        $info["\0".self::class."\0apiKey"] = '[REDACTED]';
+        return $info;
+    }
+
     /**
      * Send one request and return its undecoded body, including HTTP error responses.
      * No retries or pagination; transfer failures and byte limits raise CurlException.
@@ -46,11 +55,15 @@ abstract class AbstractApiClient
      * @param string $endpoint Relative route, e.g. stable/profile or v3/quote.
      * @param array $params Leading positional values become path segments; named values
      *     become query parameters. Null values are omitted; dates use YYYY-MM-DD.
+     * @throws \InvalidArgumentException If the endpoint URL contains a null byte.
      * @throws \JsonException
      */
     public function request(string $endpoint, array $params = []): HttpResponse
     {
         $url = $this->buildEndpointURL($endpoint, $params);
+        if (str_contains($url, "\0")) {
+            throw new \InvalidArgumentException('Endpoint URL must not contain null bytes.');
+        }
         $separator = str_contains($url, '?') ? '&' : '?';
         $channel = curl_init($url.$separator.'apikey='.rawurlencode($this->apiKey));
         if ($channel === false) {
@@ -111,10 +124,16 @@ abstract class AbstractApiClient
     {
         $response = $this->request($endpoint, $params);
         if ($response->status < 200 || $response->status >= 300) {
+            $body = $this->redact($response->body);
+            $length = min(strlen($body), self::ERROR_BODY_EXCERPT_BYTES);
+            // A continuation byte just beyond the cut belongs to the last included character.
+            while ($length > 0 && isset($body[$length]) && (ord($body[$length]) & 0xC0) === 0x80) {
+                --$length;
+            }
             throw new HttpException(
                 status: $response->status,
                 endpointURL: $this->lastEndpointURL,
-                bodyExcerpt: substr($this->redact($response->body), 0, self::ERROR_BODY_EXCERPT_BYTES),
+                bodyExcerpt: substr($body, 0, $length),
                 receivedBytes: $response->receivedBytes,
             );
         }

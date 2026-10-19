@@ -187,34 +187,28 @@ abstract class AbstractResponse implements ResponseInterface, FactoryInterface, 
     }
 
     /**
-     * Read DateTime values, Unix seconds (including digit strings), or PHP-parsable date text.
-     * Invalid dates use the fallback; timestamp dates use UTC, other text follows DateTime rules.
+     * Read DateTime values, numeric Unix seconds, or PHP-parsable date text.
+     * Numeric strings follow numbers; fractions truncate toward zero and timestamps use UTC.
+     * Missing, whitespace-only or invalid values use the fallback; other text follows DateTime rules.
      */
     public function getResponseValueAsDate(string $key, ?\DateTimeInterface $default = null): ?\DateTimeInterface
     {
         try {
             $value = $this->getResponseValue($key, null);
-            if ($value === null || $value === '') {
+            if (\is_string($value)) {
+                // Remove line breaks before interpreting numeric seconds or date text.
+                $value = str_replace(["\r", "\n"], '', $value);
+            }
+            if ($value === null || $value === '' || (\is_string($value) && \ctype_space($value))) {
                 return $default;
             }
             if ($value instanceof \DateTimeInterface) {
                 return $value;
             }
-            if (\is_int($value) || \is_float($value)) {
+            if (\is_numeric($value)) {
                 return new \DateTime('@' . (string)(int)$value);
             }
-            if (\is_string($value)) {
-                // remove line breaks because they are not allowed in DateTime strings
-                $value = str_replace(["\r", "\n"], '', $value);
-                if ($value === '') {
-                    return $default;
-                }
-                if (\ctype_digit($value)) {
-                    $value = '@' . $value;
-                }
-                return new \DateTime($value);
-            }
-            return $default;
+            return \is_string($value) ? new \DateTime($value) : $default;
         }
         catch(\Exception) {
             return $default;

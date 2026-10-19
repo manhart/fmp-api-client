@@ -64,6 +64,20 @@ final class ResponseFailuresTest extends TestCase
         yield 'unstructured' => ['Please enter a search value.', 'Please enter a search value.'];
         yield 'large' => [str_repeat('x', 8192), str_repeat('x', 2048)];
         yield 'key crossing excerpt boundary' => [str_repeat('x', 2038).'synthetic-api-key'.str_repeat('x', 100), str_repeat('x', 2038).'[REDACTED]'];
+        yield 'short Unicode body' => ['Access denied: Å € 😀', 'Access denied: Å € 😀'];
+        foreach (['two-byte' => '¢', 'three-byte' => '€', 'four-byte' => '😀'] as $name => $character) {
+            for ($includedBytes = 0; $includedBytes <= strlen($character); ++$includedBytes) {
+                $prefix = str_repeat('x', 2048 - $includedBytes);
+                yield "$name boundary $includedBytes" => [
+                    $prefix.$character.'tail',
+                    $prefix.($includedBytes === strlen($character) ? $character : ''),
+                ];
+            }
+        }
+        yield 'redaction before Unicode boundary' => [
+            str_repeat('x', 2036).'synthetic-api-key'.'€tail',
+            str_repeat('x', 2036).'[REDACTED]',
+        ];
     }
 
     #[DataProvider('errorBodies')]
@@ -82,6 +96,10 @@ final class ResponseFailuresTest extends TestCase
             $this->assertSame(strlen($body), $exception->receivedBytes);
             $this->assertStringNotContainsString('synthetic-api-key', $exception->getMessage());
             $this->assertStringContainsString('FMP HTTP 400 for ', $exception->getMessage());
+            $this->assertIsString(json_encode([
+                'message' => $exception->getMessage(),
+                'bodyExcerpt' => $exception->bodyExcerpt,
+            ], JSON_THROW_ON_ERROR));
             if ($body === '') {
                 $this->assertSame('FMP HTTP 400 for '.$client->getLastEndpointURL(), $exception->getMessage());
             }

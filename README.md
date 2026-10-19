@@ -150,6 +150,8 @@ Required arguments are required in PHP; optional arguments default to `null` and
 
 `FIELDS` describes the fields in the documentation examples. It does not remove additional fields or require all fields to be present in every record. JSON and CSV values are available through iteration and the existing typed response getters. CSV values remain strings until accessed through a typed getter.
 
+`getResponseValueAsDate()` treats numeric JSON values and numeric CSV strings as Unix seconds in UTC, including negative timestamps. Fractions are truncated toward zero; other date text follows PHP's `DateTime` rules. Missing or invalid values use the supplied fallback.
+
 Both string getters use the same conversion and apply an optional normalizer to every scalar value, including JSON/CSV strings. Whitespace is preserved unless you explicitly pass a normalizer such as `trim(...)`:
 
 ```php
@@ -217,7 +219,9 @@ try {
 
 An application that previously caught only `ResponseException` for row factories must also catch `CurlException`. Parameter encoding and replay-metadata failures can propagate `JsonException` before payload decoding begins. Unexpected programming errors are passed through unchanged.
 
-The client performs no automatic retries, pagination or caching. Diagnose URLs and exception messages redact the key. Authentication is added only to the outgoing FMP request. A byte-limited transfer can receive one cURL chunk beyond the threshold before cancellation; the body is truncated at the configured limit and the actual received body bytes are counted. HTTP/TLS overhead and provider-side quota accounting are outside this counter.
+The client performs no automatic retries, pagination or caching. Diagnostic URLs and exception messages redact the key. The API-key constructor parameter is marked `SensitiveParameter`. `var_dump()`, `print_r()` and dumpers that honour `__debugInfo()`, such as Symfony VarDumper, show the stored key as `[REDACTED]`. `var_export()` and `serialize()` bypass `__debugInfo()` and include the key; do not export, serialize or store client instances in sessions or caches.
+
+Endpoint URLs containing null bytes are rejected with `InvalidArgumentException` before authentication is appended. Authentication is added only to the outgoing FMP request. A byte-limited transfer can receive one cURL chunk beyond the threshold before cancellation; the body is truncated at the configured limit and the actual received body bytes are counted. HTTP/TLS overhead and provider-side quota accounting are outside this counter.
 
 ### Bulk responses and memory
 
@@ -306,4 +310,4 @@ Curated endpoint and parameter explanations are stored as `description` in the m
 
 See [the recording guide](docs/recordings.md) for one-time captures, cache replay, budgets and verification statuses. Endpoint access depends on your FMP subscription. The recorder reports access errors and empty responses explicitly; a verified capture covers the selected request parameters.
 
-Choose a private cache directory outside every served web root with `--cache-dir`. The default is a user-specific directory below `sys_get_temp_dir()`; your PHP configuration determines that location. On Unix, existing directories must have no group/other permissions and belong to the current user when POSIX user information is available. Directory and file symlinks are rejected. On Windows, configure private directory ACLs. Filesystem permissions and a `.cache` name do not by themselves prevent HTTP access.
+Choose a private cache directory outside every served web root with `--cache-dir`. The default is a user-specific directory below `sys_get_temp_dir()`; your PHP configuration determines that location. On Unix, existing directories must have no group/other permissions and belong to the current user when POSIX user information is available. The cache directory itself and files inside it must not be symlinks; symlinks in ancestor directories are allowed. On Windows, configure private directory ACLs. Filesystem permissions and a `.cache` name do not by themselves prevent HTTP access.

@@ -32,7 +32,7 @@ final class PayloadDecoder
             self::throwApiErrors($data);
             return $data;
         }
-        if (str_starts_with($trimmed, 'Query Error:') || str_starts_with($trimmed, 'Restricted Endpoint:')) {
+        if (self::isTextApiError($payload)) {
             throw new ResponseException(substr($trimmed, 0, strcspn($trimmed, "\r\n")));
         }
         if ($trimmed[0] === '<') {
@@ -70,6 +70,12 @@ final class PayloadDecoder
         } finally {
             fclose($stream);
         }
+    }
+
+    /** @internal Match known provider text errors using the decoder's whitespace/BOM rules. */
+    public static function isTextApiError(string $payload): bool
+    {
+        return preg_match('/\A[ \t\r\n]*(?:\xEF\xBB\xBF[ \t\r\n]*)?(?:Query Error:|Restricted Endpoint:)/', $payload) === 1;
     }
 
     public static function throwApiErrors(array $data): void

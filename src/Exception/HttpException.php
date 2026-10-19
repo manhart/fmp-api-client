@@ -11,7 +11,7 @@ class HttpException extends ResponseException
 {
     /**
      * @param string $endpointURL Diagnostic URL without authentication.
-     * @param string $bodyExcerpt Already-redacted prefix, limited to 2,048 bytes by the client.
+     * @param string $bodyExcerpt Redacted prefix up to 2,048 bytes; the client preserves UTF-8 character boundaries.
      * @param int $receivedBytes Actual received body bytes, before redaction and excerpt truncation.
      */
     public function __construct(

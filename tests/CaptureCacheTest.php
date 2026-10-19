@@ -8,6 +8,8 @@ namespace Manhart\Fmp\Tests;
 
 use Manhart\Fmp\HttpResponse;
 use Manhart\Fmp\Recording\CaptureCache;
+use Manhart\Fmp\Recording\LegacyReplayClient;
+use Manhart\Fmp\Recording\ReplayClient;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -45,6 +47,71 @@ final class CaptureCacheTest extends TestCase
     {
         $this->cache->begin($this->key, 'profile', 'https://example.test/stable/profile?symbol=DEMO');
         $this->cache->save($this->key, new HttpResponse('[]', 200, 'application/json', 2), 'empty');
+    }
+
+    public static function replayClients(): iterable
+    {
+        yield 'Stable' => [ReplayClient::class];
+        yield 'Legacy' => [LegacyReplayClient::class];
+    }
+
+    /** @param class-string<ReplayClient|LegacyReplayClient> $class */
+    #[DataProvider('replayClients')]
+    public function testDebugInfoRetainsPrivateReplayProperties(string $class): void
+    {
+        $client = new $class($this->cache);
+        $info = $client->__debugInfo();
+        $this->assertSame($this->cache, $info["\0$class\0cache"]);
+        $this->assertSame(array_keys((array)$client), array_keys($info));
+    }
+
+    public static function missingRecordings(): iterable
+    {
+        foreach ([
+            'metadata read' => ['metadata', false, 'Recording metadata is missing.'],
+            'response metadata' => ['response', false, 'Recording metadata is missing.'],
+            'replay metadata' => ['replay', false, 'Recording metadata is missing.'],
+            'response body' => ['response', true, 'Recording is missing or corrupt. Use an explicit refresh.'],
+            'replay body' => ['replay', true, 'Recording is missing or corrupt. Use an explicit refresh.'],
+        ] as $name => [$operation, $missingBody, $message]) {
+            yield $name => [$operation, $missingBody, $message, false];
+            yield $name.' with throwing handler' => [$operation, $missingBody, $message, true];
+        }
+    }
+
+    /** @throws \JsonException If fixture capture metadata cannot be encoded/decoded. */
+    #[DataProvider('missingRecordings')]
+    public function testMissingRecordingsFailWithoutUnsuppressedWarnings(string $operation, bool $missingBody, string $message, bool $throwWarnings): void
+    {
+        if ($missingBody) {
+            $this->saveCapture();
+            unlink($this->directory.'/cache/'.$this->key.'.body');
+        }
+        $warnings = [];
+        set_error_handler(static function (int $severity, string $warning) use (&$warnings, $throwWarnings): bool {
+            if (error_reporting() & $severity) {
+                $warnings[] = $warning;
+                if ($throwWarnings) {
+                    throw new \ErrorException($warning, 0, $severity);
+                }
+            }
+            return true;
+        });
+        try {
+            try {
+                if ($operation === 'replay') {
+                    (new ReplayClient($this->cache))->getProfile('DEMO');
+                } else {
+                    $this->cache->$operation($this->key);
+                }
+                $this->fail('A missing capture must not return a response.');
+            } catch (\RuntimeException $error) {
+                $this->assertSame($message, $error->getMessage());
+                $this->assertSame([], $warnings);
+            }
+        } finally {
+            restore_error_handler();
+        }
     }
 
     public static function unsafePermissions(): iterable

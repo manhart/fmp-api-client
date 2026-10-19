@@ -10,6 +10,7 @@ use Manhart\Fmp\Client\AbstractApiClient;
 use Manhart\Fmp\Exception\CurlException;
 use Manhart\Fmp\HttpResponse;
 use Manhart\Fmp\Response\FileResponse;
+use Manhart\Fmp\Response\PayloadDecoder;
 
 /** Capture each request once and validate by replay, with per-instance transfer/rate budgets. */
 final class Recorder
@@ -122,7 +123,10 @@ final class Recorder
             $outcome = 'parse-error';
             if (isset($http)) {
                 $errorPayload = json_decode($http->body, true);
-                if (is_array($errorPayload) && (isset($errorPayload['Error Message']) || isset($errorPayload['error']))) {
+                if (
+                    PayloadDecoder::isTextApiError($http->body)
+                    || (is_array($errorPayload) && (isset($errorPayload['Error Message']) || isset($errorPayload['error'])))
+                ) {
                     $outcome = 'api-error';
                 }
                 $this->cache->save($key, $http, $outcome, $error->getMessage());

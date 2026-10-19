@@ -14,6 +14,63 @@ use PHPUnit\Framework\TestCase;
 
 final class PayloadTest extends TestCase
 {
+    public static function whitespaceDates(): iterable
+    {
+        yield 'space' => [' '];
+        yield 'tab' => ["\t"];
+    }
+
+    /** @throws \JsonException If the synthetic JSON response cannot be encoded. */
+    #[DataProvider('whitespaceDates')]
+    public function testWhitespaceDatesUseTheFallbackForJsonAndCsv(string $value): void
+    {
+        $client = new FixtureClient();
+        $fallback = new \DateTimeImmutable('2000-01-01');
+        foreach ([
+            json_encode([['symbol' => 'DEMO', 'ipoDate' => $value]], JSON_THROW_ON_ERROR),
+            "symbol,ipoDate\nDEMO,$value\n",
+        ] as $payload) {
+            $client->payload = $payload;
+            $response = $client->getProfile('DEMO');
+            $this->assertNull($response->getResponseValueAsDate('ipoDate'));
+            $this->assertSame($fallback, $response->getResponseValueAsDate('ipoDate', $fallback));
+            $this->assertSame($value, $response->getResponseValue('ipoDate'));
+        }
+    }
+
+    public static function numericTimestamps(): iterable
+    {
+        yield 'negative int' => [-1, -1];
+        yield 'negative integer string' => ['-1', -1];
+        yield 'negative float' => [-1.5, -1];
+        yield 'negative decimal string' => ['-1.5', -1];
+        yield 'zero' => [0, 0];
+        yield 'zero string' => ['0', 0];
+        yield 'subsecond float' => [0.75, 0];
+        yield 'subsecond string' => ['0.75', 0];
+        yield 'positive float' => [1.5, 1];
+        yield 'positive decimal string' => ['1.5', 1];
+        yield 'positive int' => [1767225600, 1767225600];
+        yield 'positive integer string' => ['1767225600', 1767225600];
+    }
+
+    /** @throws \JsonException If the synthetic JSON response cannot be encoded. */
+    #[DataProvider('numericTimestamps')]
+    public function testJsonAndCsvUseTheSameUnixSeconds(int|float|string $value, int $expected): void
+    {
+        $client = new FixtureClient();
+        foreach ([
+            json_encode([['symbol' => 'DEMO', 'timestamp' => $value]], JSON_THROW_ON_ERROR),
+            "symbol,timestamp\nDEMO,$value\n",
+        ] as $payload) {
+            $client->payload = $payload;
+            $response = $client->fetch('quote', 'DEMO');
+            $date = $response->getResponseValueAsDate('timestamp');
+            $this->assertSame($expected, $date?->getTimestamp());
+            $this->assertSame('+00:00', $date?->format('P'));
+        }
+    }
+
     public function testJsonObjectsAndArraysRemainReadable(): void
     {
         $client = new FixtureClient();

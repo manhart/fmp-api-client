@@ -161,6 +161,40 @@ final class RecorderTest extends TestCase
         $this->assertCount(1, $client->calls);
     }
 
+    public static function textApiErrors(): iterable
+    {
+        foreach (['Query Error: invalid period', 'Restricted Endpoint: unavailable, contact support.'] as $message) {
+            foreach (['plain' => '', 'whitespace' => " \t\r\n", 'BOM and whitespace' => " \t\xEF\xBB\xBF \r\n"] as $name => $prefix) {
+                yield "$message $name" => [$prefix.$message."\nDetails"];
+            }
+        }
+    }
+
+    /** @throws \JsonException If fixture capture metadata cannot be encoded/decoded. */
+    #[DataProvider('textApiErrors')]
+    public function testTextApiErrorsAreClassifiedAndReplayedWithoutAnotherCapture(string $payload): void
+    {
+        $client = new FixtureClient();
+        $client->payload = $payload;
+        $recorder = new Recorder($this->cache, fn(int $remaining): FixtureClient => $client);
+        $result = $recorder->capture('quote', $this->case);
+        $this->assertSame('api-error', $result['outcome']);
+        $this->assertFalse($result['cached']);
+        $key = CaptureCache::key($client->urls[0]);
+        $this->assertSame('api-error', $this->cache->metadata($key)['outcome']);
+        $this->assertSame($payload, $this->cache->response($key)->body);
+
+        $replay = new Recorder($this->cache, static fn(int $remaining) => throw new \LogicException('Must use the cached API error.'));
+        $cached = $replay->capture('quote', $this->case, offline: true);
+        $this->assertSame('api-error', $cached['outcome']);
+        $this->assertTrue($cached['cached']);
+        $this->assertSame($result['error'], $cached['error']);
+        $this->assertSame('api-error', $this->cache->metadata($key)['outcome']);
+        $this->assertCount(1, $client->calls);
+        $this->assertSame(0, $replay->statistics()['calls']);
+        $this->assertSame(0, $replay->statistics()['receivedBytes']);
+    }
+
     public function testMissingOfflineRecordingNeverConstructsClient(): void
     {
         $recorder = new Recorder($this->cache, static fn(int $remaining) => throw new \LogicException('Must stay offline.'));

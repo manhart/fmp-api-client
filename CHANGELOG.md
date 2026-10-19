@@ -5,6 +5,30 @@ for the next release. Dates use YYYY-MM-DD.
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-10-19
+
+### Fixed
+
+- Hide the API-key constructor argument in exception traces through
+  `SensitiveParameter` and redact the stored key in `var_dump()`, `print_r()`
+  and `__debugInfo()`-aware dumpers such as Symfony VarDumper. Preserve mangled
+  property names and private properties of subclasses; document that
+  `var_export()` and `serialize()` still expose the key.
+- Reject null bytes in endpoint URLs before passing an authenticated URL to
+  cURL, preventing initialization errors from exposing the key in traces.
+- Read negative and fractional Unix timestamp strings consistently with
+  numeric JSON values, using whole seconds in UTC.
+- Use the date getter's fallback for whitespace-only strings instead of
+  interpreting them as the current time.
+- Classify known provider text errors in HTTP-success payloads as `api-error`
+  during recording and replay, including leading whitespace and UTF-8 BOMs.
+- Preserve UTF-8 character boundaries when limiting redacted HTTP error
+  excerpts to 2,048 bytes, retaining the original received-byte count.
+- Report missing replay metadata and bodies before attempting to read them,
+  avoiding additional unsuppressed filesystem warnings.
+- Correct diagnostic terminology and clarify that cache/file symlinks are
+  rejected while symlinks in ancestor directories are allowed.
+
 ## [0.2.0] - 2026-10-11
 
 ### Added
@@ -96,6 +120,7 @@ for the next release. Dates use YYYY-MM-DD.
 - Documentation import, reproducible code generation, fixture-based tests
   and explicit live recording with cache replay and budgets.
 
-[Unreleased]: https://github.com/manhart/fmp-api-client/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/manhart/fmp-api-client/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/manhart/fmp-api-client/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/manhart/fmp-api-client/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/manhart/fmp-api-client/tree/v0.1.0
